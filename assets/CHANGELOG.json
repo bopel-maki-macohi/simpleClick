@@ -4,7 +4,11 @@
 			"version": "0.2.0",
 			"changes": [
 				{
-					"change": "Changelog State",
+					"change": "Saves",
+					"type": "addition"
+				},
+				{
+					"change": "Changelog State (C to toggle between it)",
 					"type": "addition"
 				}
 			],

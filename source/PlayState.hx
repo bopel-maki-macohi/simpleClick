@@ -34,6 +34,8 @@ class PlayState extends FlxState
 		_scoreText = new FlxText(0, 10, 0, '', 16);
 		_scoreText.alignment = CENTER;
 		add(_scoreText);
+
+		_score = Save._instance.score;
 	}
 
 	override public function update(elapsed:Float)
@@ -42,6 +44,8 @@ class PlayState extends FlxState
 
 		_scoreText.text = 'SCORE:\n' + _score;
 		_scoreText.screenCenter(X);
+		
+		Save._instance.score = _score;
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new ChangelogState());

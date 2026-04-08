@@ -5,6 +5,7 @@
 
 <entrys>
     <entry version="0.2.0" date="2026-04-08">
+        <addition>Saves</addition>
         <addition>Changelog State (C to toggle between it)</addition>
     </entry>
 

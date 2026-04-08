@@ -1,6 +1,7 @@
 # 0.2.0 - 2026-04-08
 
-- addition : Changelog State
+- addition : Saves
+- addition : Changelog State (C to toggle between it)
 
 # 0.1.0 - 2026-04-08
 
@@ -13,4 +14,4 @@
 
 Inital Release
 
-<!-- Generated: 2026-04-08 14:35:54 -->
+<!-- Generated: 2026-04-08 15:00:44 -->
