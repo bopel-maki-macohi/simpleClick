@@ -15,7 +15,7 @@
 	<haxedef name="POLYMOD_ROOT_PATH" value="scripts/"/>
 	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="meta.json"/>
 	<haxedef name="POLYMOD_MOD_ICON_FILE" value="icon.png"/>
-	<haxedef name="POLYMOD_DEBUG"/>
+	<!-- <haxedef name="POLYMOD_DEBUG"/> -->
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 

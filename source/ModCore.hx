@@ -1,3 +1,4 @@
+import scripting.modules.ModuleHandler;
 import flixel.FlxG;
 import thx.semver.Version;
 import thx.semver.VersionRule;
@@ -10,8 +11,14 @@ class ModCore
 {
 	public static function reload()
 	{
+		Polymod.clearCache();
+		Polymod.clearScripts();
+		Polymod.reload();
+
+		ModuleHandler.load();
+
 		ModCore.getValidModMetas();
-		
+
 		loadEnabledMods();
 
 		FlxG.resetState();
@@ -135,29 +142,17 @@ class ModCore
 		return validModMetadatas;
 	}
 
-	static function onError(error:PolymodError)
+	static function onError(e:PolymodError)
 	{
-		var plannedMsg = '[${error.severity} / ${error.code}]\t'.toUpperCase() + '${error.message}';
+		// Trace the message because why the hell not
+		// Only the good errors though
+		// No one cares about framework and missing icons
+		if (e.code == FRAMEWORK_INIT || e.code == MOD_MISSING_ICON) return;
 
-		if ([
-			MOD_MISSING_ICON,
-			SCRIPT_PARSE_START,
-			MOD_LOAD_START,
-			MOD_LOAD_DONE,
-			FRAMEWORK_INIT
-		].contains(error.code)) return;
+		trace(e.message);
 
-		switch (error.code)
-		{
-			case null:
-				plannedMsg = plannedMsg.replace(' / ${error.code}'.toUpperCase(), '');
-
-			case MOD_LOAD_START, MOD_LOAD_DONE:
-				plannedMsg = plannedMsg.replace('mods/', ': "') + '"';
-
-			default:
-		}
-
-		trace(plannedMsg);
+		// Only alert the player of errors because no one cares about the other stuff
+		// Though the player should be aware of dependency problems as well
+		if (e.severity == ERROR || e.code == MOD_DEPENDENCY_UNMET) FlxG.stage.application.window.alert(e.message);
 	}
 }
