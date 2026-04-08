@@ -28,7 +28,7 @@ class ChangelogTextGenerator
 			if (element.name == 'entrys') entrys = element;
 		}
 
-		textGen();
+		// textGen();
 		jsonGen();
 	}
 
@@ -91,5 +91,6 @@ class ChangelogTextGenerator
 		}
 
 		File.saveContent('dev/changelogVariations/CHANGELOG.json', Json.stringify(j, '\t'));
+		File.saveContent('assets/CHANGELOG.json', File.getContent('dev/changelogVariations/CHANGELOG.json'));
 	}
 }
