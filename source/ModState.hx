@@ -38,9 +38,12 @@ class ModState extends FlxState
 
 		var mod:ModMetadata = ModCore.loadedModMetadatas[_currentSelection];
 
-		_text.text += 'Title: ' + mod.title + '\n\n';
+		_text.text += 'Title: ' + mod.title + '\n';
 		_text.text += 'ID: ' + mod.id + '\n\n';
-		_text.text += 'Version: ' + mod.apiVersion + '\n\n';
+		
+        _text.text += 'Mod Version: ' + mod.modVersion + '\n';
+		_text.text += 'API Version: ' + mod.apiVersion + '\n\n';
+
 		_text.text += 'Description: ' + mod.description + '\n\n';
 	}
 }
