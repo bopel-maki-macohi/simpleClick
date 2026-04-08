@@ -5,7 +5,7 @@
 
 <entrys>
     <entry version="0.3.1" date="2026-04-08">
-        <fix>Fixed "highscore" save field being null when you are playing for the first time</fix>
+        <fix issuenumber="1">Fixed "highscore" save field being null when you are playing for the first time</fix>
     </entry>
 
     <entry version="0.3.0" date="2026-04-08">
