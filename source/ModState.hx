@@ -34,11 +34,13 @@ class ModState extends FlxState
 		if (ModCore.loadedModIds.length < 1) return;
 
 		_text.setPosition(0, 0);
-		_text.text = '${_currentSelection + 1} / ${ModCore.loadedModIds.length}\n';
+		_text.text = '${_currentSelection + 1} / ${ModCore.loadedModIds.length}\n\n';
 
 		var mod:ModMetadata = ModCore.loadedModMetadatas[_currentSelection];
 
-		_text.text += 'Mod: ' + mod.title + ' (' + mod.id + ') \n';
-		_text.text += 'Description:\n' + mod.description + '\n';
+		_text.text += 'Title: ' + mod.title + '\n\n';
+		_text.text += 'ID: ' + mod.id + '\n\n';
+		_text.text += 'Version: ' + mod.apiVersion + '\n\n';
+		_text.text += 'Description: ' + mod.description + '\n\n';
 	}
 }
