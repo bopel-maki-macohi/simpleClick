@@ -36,7 +36,7 @@ class ModState extends FlxState
 		_text.setPosition(0, 0);
 		_text.text = '${_currentSelection + 1} / ${ModCore.loadedModIds.length}\n';
 
-		var mod:ModMetadata = ModCore.getModMetas()[_currentSelection];
+		var mod:ModMetadata = ModCore.loadedModMetadatas[_currentSelection];
 
 		_text.text += 'Mod: ' + mod.title + ' (' + mod.id + ') \n';
 		_text.text += 'Description:\n' + mod.description + '\n';

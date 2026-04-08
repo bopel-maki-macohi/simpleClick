@@ -36,6 +36,7 @@ class ModCore
 
 	public static var loadedModDirs:Array<String> = [];
 	public static var loadedModIds:Array<String> = [];
+	public static var loadedModMetadatas:Array<ModMetadata> = [];
 
 	static function loadMods(mods:Array<String>)
 	{
@@ -109,17 +110,21 @@ class ModCore
 
 	public static function getModMetas()
 	{
-		return Polymod.scan(
+		loadedModMetadatas = Polymod.scan(
 			{
 				modRoot: modRoot,
 				errorCallback: onError,
 				apiVersionRule: apiVersionRule,
 			});
+
+		return loadedModMetadatas;
 	}
 
 	static function onError(error:PolymodError)
 	{
 		var plannedMsg = '[${error.severity} / ${error.code}]\t'.toUpperCase() + '${error.message}';
+
+		if ([MOD_MISSING_ICON].contains(error.code)) return;
 
 		switch (error.code)
 		{
