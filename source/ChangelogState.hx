@@ -26,6 +26,8 @@ class ChangelogState extends FlxState
 					case 'message':
 						_text.text += '${change.change}\n';
 
+						if (entry.changes.filter(d -> return d.type != change.type).length > 0) _text.text += '\n';
+
 					default:
 						_text.text += '- ${change.type} : ${change.change}\n';
 				}

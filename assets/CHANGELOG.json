@@ -4,8 +4,12 @@
 			"version": "0.3.0",
 			"changes": [
 				{
-					"change": "Mostly a codebase update NGL",
+					"change": "Mostly a codebase update for the save system NGL",
 					"type": "message"
+				},
+				{
+					"change": "\"message\" changelog entry types now have an extra line break if there are actually changes n stuff",
+					"type": "change"
 				},
 				{
 					"change": "Score doesn't save between sessions now, only between switching from states",

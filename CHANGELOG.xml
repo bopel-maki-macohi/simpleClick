@@ -7,6 +7,8 @@
     <entry version="0.3.0" date="2026-04-08">
         <message>Mostly a codebase update for the save system NGL</message>
 
+        <change>"message" changelog entry types now have an extra line break if there are actually changes n stuff</change>
+
         <change>Score doesn't save between sessions now, only between switching from states</change>
         <addition>Highscores!</addition>
     </entry>
