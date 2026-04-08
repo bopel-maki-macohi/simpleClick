@@ -1,3 +1,6 @@
+# 0.4.0 - 2026-04-08
+
+
 # 0.3.0 - 2026-04-08
 
 Mostly a codebase update for the save system NGL
@@ -22,4 +25,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-08 16:08:44 -->
+<!-- Generated: 2026-04-08 16:15:45 -->
