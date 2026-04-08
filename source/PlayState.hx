@@ -1,5 +1,7 @@
 package;
 
+import lime.utils.Assets;
+import haxe.Json;
 import flixel.util.FlxColor;
 import flixel.FlxSprite;
 import flixel.FlxG;
@@ -18,6 +20,8 @@ class PlayState extends FlxState
 	override public function create()
 	{
 		super.create();
+
+		ChangelogState.changelog = Json.parse(Assets.getText('assets/CHANGELOG.json'));
 
 		_versionText = new FlxText(0, 0, 0, FlxG.stage.application.meta.get('version'), 16);
 		add(_versionText);
@@ -40,6 +44,9 @@ class PlayState extends FlxState
 		_scoreText.screenCenter(X);
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
+
+		if (FlxG.keys.justReleased.C)
+			FlxG.switchState(() -> new ChangelogState());
 	}
 
 	function onClick()

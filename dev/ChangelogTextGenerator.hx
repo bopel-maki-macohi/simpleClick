@@ -28,7 +28,7 @@ class ChangelogTextGenerator
 			if (element.name == 'entrys') entrys = element;
 		}
 
-		// textGen();
+		textGen();
 		jsonGen();
 	}
 
