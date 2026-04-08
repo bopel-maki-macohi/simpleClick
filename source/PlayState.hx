@@ -36,12 +36,15 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 
-		_scoreText.text = 'SCORE:\n' + _score; 
+		_scoreText.text = 'SCORE:\n' + _score;
 		_scoreText.screenCenter(X);
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object))
 			onClick();
 	}
 
-	function onClick() {}
+	function onClick()
+	{
+		_score += 1;
+	}
 }
