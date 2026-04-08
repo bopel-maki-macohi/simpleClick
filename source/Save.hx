@@ -6,11 +6,15 @@ class Save extends FlxSave
 {
 	public static var instance:Save;
 
-	override public function new()
-	{
-		super();
+	public var highscore:SaveField<MInt>;
+	public var version:SaveField<String>;
 
+	public function init()
+	{
 		bind('SimpleClick', 'Maki');
+
+		highscore = new SaveField<MInt>('highscore');
+		version = new SaveField<String>('version');
 
 		saveMigration();
 
@@ -28,30 +32,28 @@ class Save extends FlxSave
 	{
 		trace(data);
 
-		final score:SaveField<MInt> = new SaveField<MInt>('score');
-
-		if (score.get() != null)
+		if (data.score != null)
 		{
 			trace('Moved to v0.3 (non-score) save');
 
-			version.set(FlxG.stage.application.meta.get('version'));
-			highscore.set(score.get());
+			var score = data.score;
+			highscore.set(score);
 
 			Reflect.deleteField(data, 'score');
 		}
+
+		version.set(FlxG.stage.application.meta.get('version'));
 	}
 
-	public static function getField(field:String):Dynamic
+	public function getField(field:String):Dynamic
 	{
-		if (Save.instance == null) return null;
-		if (!Save.instance.isBound || Save.instance.isEmpty()) return null;
+		if (!isBound || isEmpty()) return null;
 
-		return Reflect.getProperty(Save.instance.data, field);
+		return Reflect.getProperty(data, field);
 	}
 
-	public static function setField(field:String, value:Dynamic)
+	public function setField(field:String, value:Dynamic)
 	{
-		if (Save.instance == null) return;
-		if (Save.instance.isBound) Reflect.setProperty(Save.instance.data, field, value);
+		if (isBound) Reflect.setProperty(data, field, value);
 	}
 }
