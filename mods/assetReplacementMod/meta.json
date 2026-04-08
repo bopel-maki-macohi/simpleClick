@@ -1,0 +1,12 @@
+{
+    "title": "assetReplacementMod",
+    "description": "This does some fuckery with the CHANGELOG.json file!",
+    "contributors": [
+        {
+            "name": "Maki"
+        }
+    ],
+    "api_version": "0.4.0",
+    "mod_version": "1.0.0",
+    "license": "Apache-2.0"
+}

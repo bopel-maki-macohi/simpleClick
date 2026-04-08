@@ -4,6 +4,8 @@ import thx.semver.VersionRule;
 import polymod.Polymod;
 import polymod.fs.ZipFileSystem;
 
+using StringTools;
+
 class ModCore
 {
 	public static var modRoot:String = 'mods/';
@@ -117,6 +119,19 @@ class ModCore
 
 	static function onError(error:PolymodError)
 	{
-		trace('[${error.severity} / ${error.code}]'.toUpperCase() + ' ${error.message}');
+		var plannedMsg = '[${error.severity} / ${error.code}]\t'.toUpperCase() + '${error.message}';
+
+		switch (error.code)
+		{
+			case null:
+				plannedMsg = plannedMsg.replace(' / ${error.code}'.toUpperCase(), '');
+
+			case MOD_LOAD_START, MOD_LOAD_DONE:
+				plannedMsg = plannedMsg.replace('mods/', ': "') + '"';
+
+			default:
+		}
+
+		trace(plannedMsg);
 	}
 }
