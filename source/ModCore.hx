@@ -97,7 +97,7 @@ class ModCore
 			});
 	}
 
-	static function getAllModDirs()
+	public static function getAllModDirs()
 	{
 		var dirs = [];
 
@@ -107,7 +107,7 @@ class ModCore
 		return dirs;
 	}
 
-	static function getModMetas()
+	public static function getModMetas()
 	{
 		return Polymod.scan(
 			{
