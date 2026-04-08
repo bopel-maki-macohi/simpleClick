@@ -19,9 +19,17 @@ class ModCore
 
 	static var modFileSystem:Null<ZipFileSystem> = null;
 
-	public static function init()
+	public static function loadAllMods()
 	{
+		makeModRoot();
 		loadMods(getAllModDirs());
+	}
+
+	static function makeModRoot()
+	{
+		#if sys
+		if (!sys.FileSystem.exists(modRoot)) sys.FileSystem.createDirectory(modRoot);
+		#end
 	}
 
 	public static var loadedModDirs:Array<String> = [];

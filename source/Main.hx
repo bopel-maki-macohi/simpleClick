@@ -12,7 +12,7 @@ class Main extends Sprite
 		Save.instance = new Save();
 		Save.instance.init();
 
-		ModCore.init();
+		ModCore.loadAllMods();
 
 		addChild(new FlxGame(0, 0, PlayState));
 	}

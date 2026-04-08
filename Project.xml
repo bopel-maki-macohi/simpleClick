@@ -25,7 +25,7 @@
 	<source path="source" />
 	<assets path="assets" />
 	<assets path="CHANGELOG.xml" />
-	<assets path="mods" />
+	<assets path="mods" if="debug"/>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
