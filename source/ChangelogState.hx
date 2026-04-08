@@ -29,7 +29,12 @@ class ChangelogState extends FlxState
 						if (entry.changes.filter(d -> return d.type != change.type).length > 0) _text.text += '\n';
 
 					default:
-						_text.text += '- ${change.type} : ${change.change}\n';
+						_text.text += '- ${change.type} : ${change.change}';
+						
+						// TODO: links to send you to the issue
+						if (change.issuenumber != null) _text.text += ' (Issue #${change.issuenumber})';
+
+						_text.text += '\n';
 				}
 			}
 

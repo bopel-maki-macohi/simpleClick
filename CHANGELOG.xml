@@ -7,6 +7,11 @@
     <entry version="0.4.0" date="2026-04-08">
         <addition>The OTC (Object To Click) now has a little squish when it's clicked</addition>
     </entry>
+    
+    <entry version="0.3.1" date="2026-04-08">
+        <addition>Github issues can now be included in the changelog</addition>
+        <fix issuenumber="1">Fixed "highscore" save field being null when you are playing for the first time</fix>
+    </entry>
 
     <entry version="0.3.0" date="2026-04-08">
         <message>Mostly a codebase update for the save system NGL</message>

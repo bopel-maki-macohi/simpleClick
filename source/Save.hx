@@ -13,12 +13,12 @@ class Save extends FlxSave
 	{
 		bind('SimpleClick', 'Maki');
 
-		highscore = new SaveField<Null<Int>>('highscore');
-		version = new SaveField<String>('version');
+		highscore = new SaveField<Null<Int>>('highscore', 0);
+		version = new SaveField<String>('version', FlxG.stage.application.meta.get('version'));
 
 		saveMigration();
 
-		if (!Application.current.onExit.has(save)) Application.current.onExit.add(save);
+		if (!FlxG.stage.application.onExit.has(save)) FlxG.stage.application.onExit.add(save);
 	}
 
 	function save(l)

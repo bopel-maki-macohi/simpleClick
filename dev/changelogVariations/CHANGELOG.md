@@ -1,5 +1,11 @@
 # 0.4.0 - 2026-04-08
 
+- addition : The OTC (Object To Click) now has a little squish when it's clicked
+
+# 0.3.1 - 2026-04-08
+
+- addition : Github issues can now be included in the changelog
+- fix : Fixed "highscore" save field being null when you are playing for the first time (https://github.com/bopel-maki-macohi/simpleClick/issues/1)
 
 # 0.3.0 - 2026-04-08
 
@@ -25,4 +31,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-08 16:15:45 -->
+<!-- Generated: 2026-04-08 17:48:16 -->

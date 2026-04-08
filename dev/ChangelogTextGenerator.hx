@@ -54,7 +54,11 @@ class ChangelogTextGenerator
 						if (entry.changes.filter(d -> return d.type != change.type).length > 0) t += '\n';
 
 					default:
-						t += '- ${change.type} : ${change.change}\n';
+						t += '- ${change.type} : ${change.change}';
+
+						if (change.issuenumber != null) t += ' (https://github.com/bopel-maki-macohi/simpleClick/issues/${change.issuenumber})';
+
+						t += '\n';
 				}
 			}
 
@@ -86,10 +90,15 @@ class ChangelogTextGenerator
 
 				for (entr in entry.elements)
 				{
+					var issuenumber:String = null;
+
+					if (entr.has.resolve('issuenumber')) issuenumber = entr.att.issuenumber;
+
 					jentry.changes.push(
 						{
 							change: entr.innerData,
 							type: entr.name,
+							issuenumber: issuenumber,
 						});
 				}
 
