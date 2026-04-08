@@ -1,6 +1,7 @@
 # 0.3.0 - 2026-04-08
 
 Mostly a codebase update for the save system NGL
+
 - change : "message" changelog entry types now have an extra line break if there are actually changes n stuff
 - change : Score doesn't save between sessions now, only between switching from states
 - addition : Highscores!
@@ -21,4 +22,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-08 16:03:28 -->
+<!-- Generated: 2026-04-08 16:06:37 -->

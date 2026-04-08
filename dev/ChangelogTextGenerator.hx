@@ -20,7 +20,7 @@ class ChangelogTextGenerator
 
 		changelogXml = new Access(Xml.parse(changelogRawXML));
 		entrys = null;
-			
+
 		for (element in changelogXml.elements)
 		{
 			if (entrys != null) continue;
@@ -42,9 +42,22 @@ class ChangelogTextGenerator
 			{
 				t += '# ' + entry.att.resolve('version') + ' - ' + entry.att.resolve('date') + '\n\n';
 
-				for (entr in entry.elements)
+				var entryElms:Array<Dynamic> = [];
+				for (e in entry.elements)
+					entryElms.push(
+						{
+							name: e.name,
+							innerData: e.innerData,
+						});
+
+				for (entr in entryElms)
 				{
-					if (entr.name == 'message') t += entr.innerData;
+					if (entr.name == 'message')
+					{
+						t += entr.innerData;
+
+						if (entryElms.filter(f -> return f.name != 'message').length > 0) t += '\n';
+					}
 					else
 						t += '- ' + entr.name + ' : ' + entr.innerData;
 					t += '\n';
