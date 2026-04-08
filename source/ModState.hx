@@ -13,7 +13,7 @@ class ModState extends FlxState
 	{
 		super.create();
 
-		_text = new FlxText();
+		_text = new FlxText(0, 0, 0, '', 16);
 		add(_text);
 	}
 
