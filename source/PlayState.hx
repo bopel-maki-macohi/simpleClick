@@ -44,9 +44,7 @@ class PlayState extends FlxState
 		_scoreText.screenCenter(X);
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
-
-		if (FlxG.keys.justReleased.C)
-			FlxG.switchState(() -> new ChangelogState());
+		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new ChangelogState());
 	}
 
 	function onClick()

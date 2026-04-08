@@ -30,8 +30,15 @@ class ChangelogState extends FlxState
 						_text.text += '- ${change.type} : ${change.change}\n';
 				}
 			}
-            
+
 			_text.text += '\n';
 		}
+	}
+
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+
+		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new PlayState());
 	}
 }
