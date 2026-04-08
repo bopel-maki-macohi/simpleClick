@@ -5,9 +5,9 @@ import flixel.FlxState;
 
 class ModState extends FlxState
 {
-	public var _text:FlxText;
+	public static var currentSelection:Int = 0;
 
-	public var _currentSelection:Int = 0;
+    public var _text:FlxText;
 
 	override function create()
 	{
@@ -27,9 +27,12 @@ class ModState extends FlxState
 
 		if (ModCore.validModMetadatas.length > 1)
 		{
+			if (FlxG.keys.anyJustPressed([A, LEFT])) currentSelection--;
+			if (FlxG.keys.anyJustPressed([D, RIGHT])) currentSelection++;
+
 			if (FlxG.keys.justReleased.SPACE)
 			{
-				final mod = ModCore.validModMetadatas[_currentSelection].dirName;
+				final mod = ModCore.validModMetadatas[currentSelection].dirName;
 
 				if (Save.instance.enabledMods.get().contains(mod)) Save.instance.enabledMods.get().remove(mod);
 				else
@@ -47,10 +50,13 @@ class ModState extends FlxState
 
 		if (ModCore.validModMetadatas.length < 1) return;
 
-		_text.setPosition(0, 0);
-		_text.text = '${_currentSelection + 1} / ${ModCore.validModMetadatas.length}\n\n';
+		if (currentSelection < 0) currentSelection = 0;
+		if (currentSelection > ModCore.validModMetadatas.length - 1) currentSelection = ModCore.validModMetadatas.length - 1;
 
-		var mod:ModMetadata = ModCore.validModMetadatas[_currentSelection];
+		_text.setPosition(0, 0);
+		_text.text = '${currentSelection + 1} / ${ModCore.validModMetadatas.length}\n\n';
+
+		var mod:ModMetadata = ModCore.validModMetadatas[currentSelection];
 
 		_text.text += 'Title: ' + mod.title + '\n';
 		_text.text += 'ID: ' + mod.id + '\n\n';
@@ -58,7 +64,7 @@ class ModState extends FlxState
 		_text.text += 'Mod Version: ' + mod.modVersion + '\n';
 		_text.text += 'API Version: ' + mod.apiVersion + '\n\n';
 
-		_text.text += 'Description: ' + mod.description + '\n\n';
+		_text.text += 'Description:\n' + mod.description + '\n\n';
 
 		_text.text += 'Enabled: ' + Save.instance.enabledMods.get().contains(mod.dirName) + '\n\n';
 	}
