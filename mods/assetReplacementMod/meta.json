@@ -1,6 +1,6 @@
 {
     "title": "assetReplacementMod",
-    "description": "This does some fuckery with the CHANGELOG.json file!",
+    "description": "This does some fuckery with the data/CHANGELOG.json file!",
     "contributors": [
         {
             "name": "Maki"

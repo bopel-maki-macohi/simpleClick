@@ -5,6 +5,8 @@
 
 <entrys>
     <entry version="0.4.0" date="2026-04-08">
+        <change>"CHANGELOG.json" has been moved to "data/CHANGELOG.json"</change>
+        <addition>MOD SUPPORT VIA POLYMOD!</addition>
         <addition>The OTC (Object To Click) now has a little squish when it's clicked</addition>
     </entry>
     

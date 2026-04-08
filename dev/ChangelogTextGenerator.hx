@@ -36,7 +36,7 @@ class ChangelogTextGenerator
 	{
 		var t:String = '';
 
-		var j:Dynamic = Json.parse(File.getContent('assets/CHANGELOG.json'));
+		var j:Dynamic = Json.parse(File.getContent('assets/data/CHANGELOG.json'));
 		var entrys:Array<Dynamic> = j.entrys;
 
 		for (entry in entrys)
@@ -106,7 +106,7 @@ class ChangelogTextGenerator
 			}
 		}
 
-		// File.saveContent('dev/changelogVariations/CHANGELOG.json', Json.stringify(j, '\t'));
-		File.saveContent('assets/CHANGELOG.json', Json.stringify(j, '\t'));
+		// File.saveContent('dev/changelogVariations/data/CHANGELOG.json', Json.stringify(j, '\t'));
+		File.saveContent('assets/data/CHANGELOG.json', Json.stringify(j, '\t'));
 	}
 }

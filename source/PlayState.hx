@@ -26,7 +26,7 @@ class PlayState extends FlxState
 	{
 		super.create();
 
-		ChangelogState.changelog = Json.parse(Assets.getText('assets/CHANGELOG.json'));
+		ChangelogState.changelog = Json.parse(Assets.getText('assets/data/CHANGELOG.json'));
 
 		_versionText = new FlxText(0, 0, 0, FlxG.stage.application.meta.get('version'), 16);
 		add(_versionText);
