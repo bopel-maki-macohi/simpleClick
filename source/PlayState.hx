@@ -1,5 +1,7 @@
 package;
 
+import flixel.tweens.FlxEase;
+import flixel.tweens.FlxTween;
 import flixel.math.FlxMath;
 import lime.utils.Assets;
 import haxe.Json;
@@ -50,9 +52,6 @@ class PlayState extends FlxState
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new ChangelogState());
-
-		_object.scale.x = FlxMath.lerp(_object.scale.x, 1, 0.04);
-		_object.scale.y = FlxMath.lerp(_object.scale.y, 1, 0.04);
 	}
 
 	function onClick()
@@ -62,5 +61,11 @@ class PlayState extends FlxState
 		if (PlayState.score > Save.instance.highscore.get()) Save.instance.highscore.set(PlayState.score);
 
 		_object.scale.set(0.9, 0.9);
+
+		FlxTween.cancelTweensOf(_object);
+		FlxTween.tween(_object, {'scale.x': 1, 'scale.y': 1}, .2,
+			{
+				ease: FlxEase.sineOut
+			});
 	}
 }
