@@ -10,6 +10,19 @@
 
 	<haxeflag name="--dce full" unless="debug" />
 
+	<!-- _____________________________ Path Settings ____________________________ -->
+
+	<set name="BUILD_DIR" value="export/release" />
+	<set name="BUILD_DIR" value="export/debug" if="debug"/>
+
+	<source path="source" />
+	<assets path="assets" />
+	<assets path="CHANGELOG.xml" />
+
+	<!-- _______________________________ Libraries ______________________________ -->
+
+	<haxelib name="flixel" />
+
 	<!-- _________________________ Application Settings _________________________ -->
 
 	<app main="Main" />
@@ -24,18 +37,6 @@
 	<window if="html5" resizable="true" />
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" />
 	<window if="mobile" orientation="landscape" fullscreen="true" width="0" height="0" />
-
-	<!-- _____________________________ Path Settings ____________________________ -->
-
-	<set name="BUILD_DIR" value="export/release" />
-	<set name="BUILD_DIR" value="export/debug" if="debug"/>
-
-	<source path="source" />
-	<assets path="assets" />
-
-	<!-- _______________________________ Libraries ______________________________ -->
-
-	<haxelib name="flixel" />
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
