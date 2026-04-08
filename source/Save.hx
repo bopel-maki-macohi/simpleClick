@@ -8,6 +8,7 @@ class Save extends FlxSave
 
 	public var highscore:SaveField<Null<Int>>;
 	public var version:SaveField<String>;
+	public var enabledMods:SaveField<Array<String>>;
 
 	public function init()
 	{
@@ -15,6 +16,7 @@ class Save extends FlxSave
 
 		highscore = new SaveField<Null<Int>>('highscore', 0);
 		version = new SaveField<String>('version', FlxG.stage.application.meta.get('version'));
+		enabledMods = new SaveField<Array<String>>('enabledMods', []);
 
 		saveMigration();
 
@@ -34,7 +36,7 @@ class Save extends FlxSave
 
 		if (data.score != null)
 		{
-			trace('Moved to v0.3 (non-score) save');
+			trace('Moved to v0.3+ (non-score) save');
 
 			var score = data.score;
 			highscore.set(score);
