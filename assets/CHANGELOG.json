@@ -5,7 +5,7 @@
 			"changes": [
 				{
 					"change": "Changelog State",
-					"changeType": "addition"
+					"type": "addition"
 				}
 			],
 			"date": "2026-04-08"
@@ -15,19 +15,19 @@
 			"changes": [
 				{
 					"change": "Score Text",
-					"changeType": "addition"
+					"type": "addition"
 				},
 				{
 					"change": "Score",
-					"changeType": "addition"
+					"type": "addition"
 				},
 				{
 					"change": "Object to click",
-					"changeType": "addition"
+					"type": "addition"
 				},
 				{
 					"change": "Version Text",
-					"changeType": "addition"
+					"type": "addition"
 				}
 			],
 			"date": "2026-04-08"
@@ -37,7 +37,7 @@
 			"changes": [
 				{
 					"change": "Inital Release",
-					"changeType": "message"
+					"type": "message"
 				}
 			],
 			"date": "2026-04-08"

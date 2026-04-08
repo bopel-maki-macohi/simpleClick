@@ -82,7 +82,7 @@ class ChangelogTextGenerator
 					jentry.changes.push(
 						{
 							change: entr.innerData,
-							changeType: entr.name,
+							type: entr.name,
 						});
 				}
 
@@ -90,7 +90,7 @@ class ChangelogTextGenerator
 			}
 		}
 
-		File.saveContent('dev/changelogVariations/CHANGELOG.json', Json.stringify(j, '\t'));
-		File.saveContent('assets/CHANGELOG.json', File.getContent('dev/changelogVariations/CHANGELOG.json'));
+		// File.saveContent('dev/changelogVariations/CHANGELOG.json', Json.stringify(j, '\t'));
+		File.saveContent('assets/CHANGELOG.json', Json.stringify(j, '\t'));
 	}
 }
