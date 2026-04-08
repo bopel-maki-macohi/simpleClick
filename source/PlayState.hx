@@ -1,5 +1,6 @@
 package;
 
+import flixel.math.FlxMath;
 import lime.utils.Assets;
 import haxe.Json;
 import flixel.util.FlxColor;
@@ -15,6 +16,7 @@ class PlayState extends FlxState
 	public var _object:FlxSprite;
 
 	public static var score:Int = 0;
+
 	public var _highscore:Int = 0;
 	public var _scoreText:FlxText;
 
@@ -48,6 +50,9 @@ class PlayState extends FlxState
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new ChangelogState());
+
+		_object.scale.x = FlxMath.lerp(_object.scale.x, 1, 0.04);
+		_object.scale.y = FlxMath.lerp(_object.scale.y, 1, 0.04);
 	}
 
 	function onClick()
@@ -55,5 +60,7 @@ class PlayState extends FlxState
 		PlayState.score += 1;
 
 		if (PlayState.score > Save.instance.highscore.get()) Save.instance.highscore.set(PlayState.score);
+
+		_object.scale.set(0.9, 0.9);
 	}
 }
