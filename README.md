@@ -13,6 +13,8 @@ I just REALLY wanted to make something...
 1. Get [Haxeflixel](https://haxeflixel.com/)
 2. Run the following:
 - `haxelib git polymod https://github.com/FunkinCrew/polymod experimental`
+- `haxelib git thx.core https://github.com/fponticelli/thx.core`
+- `haxelib git thx.semver https://github.com/fponticelli/thx.semver`
 3. Perform additional platform setup
    - For Windows, download the [Visual Studio Build Tools](https://aka.ms/vs/17/release/vs_BuildTools.exe)
         - When prompted, select "Individual Components" and make sure to download the following:

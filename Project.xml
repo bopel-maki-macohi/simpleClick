@@ -10,6 +10,8 @@
 
 	<haxeflag name="--dce full" unless="debug" />
 
+	<define name="hscriptPos" />
+
 	<!-- _____________________________ Path Settings ____________________________ -->
 
 	<set name="BUILD_DIR" value="export/release" />
@@ -18,6 +20,7 @@
 	<source path="source" />
 	<assets path="assets" />
 	<assets path="CHANGELOG.xml" />
+	<assets path="mods" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
