@@ -6,14 +6,14 @@ class Save extends FlxSave
 {
 	public static var instance:Save;
 
-	public var highscore:SaveField<MInt>;
+	public var highscore:SaveField<Null<Int>>;
 	public var version:SaveField<String>;
 
 	public function init()
 	{
 		bind('SimpleClick', 'Maki');
 
-		highscore = new SaveField<MInt>('highscore');
+		highscore = new SaveField<Null<Int>>('highscore');
 		version = new SaveField<String>('version');
 
 		saveMigration();
