@@ -14,7 +14,8 @@ class PlayState extends FlxState
 
 	public var _object:FlxSprite;
 
-	public var _score:Int = 0;
+	public static var score:Int = 0;
+	public var _highscore:Int = 0;
 	public var _scoreText:FlxText;
 
 	override public function create()
@@ -35,17 +36,15 @@ class PlayState extends FlxState
 		_scoreText.alignment = CENTER;
 		add(_scoreText);
 
-		_score = Save.instance.score;
+		_highscore = Save.instance.highscore.get();
 	}
 
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		_scoreText.text = 'SCORE:\n' + _score;
+		_scoreText.text = 'SCORE: ${PlayState.score}\n' + 'HIGHSCORE: ${Save.instance.highscore}';
 		_scoreText.screenCenter(X);
-		
-		Save.instance.score = _score;
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new ChangelogState());
@@ -53,6 +52,8 @@ class PlayState extends FlxState
 
 	function onClick()
 	{
-		_score += 1;
+		PlayState.score += 1;
+
+		if (PlayState.score > Save.instance.highscore.get()) Save.instance.highscore.set(PlayState.score);
 	}
 }

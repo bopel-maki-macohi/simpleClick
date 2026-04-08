@@ -4,6 +4,13 @@
 <!-- haxe -m dev.ChangelogTextGenerator - -interp -->
 
 <entrys>
+    <entry version="0.3.0" date="2026-04-08">
+        <message>Mostly a codebase update for the save system NGL</message>
+
+        <change>Score doesn't save between sessions now, only between switching from states</change>
+        <addition>Highscores!</addition>
+    </entry>
+
     <entry version="0.2.0" date="2026-04-08">
         <addition>Saves</addition>
         <addition>Changelog State (C to toggle between it)</addition>

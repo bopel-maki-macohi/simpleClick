@@ -1,6 +1,24 @@
 {
 	"entrys": [
 		{
+			"version": "0.3.0",
+			"changes": [
+				{
+					"change": "Mostly a codebase update NGL",
+					"type": "message"
+				},
+				{
+					"change": "Score doesn't save between sessions now, only between switching from states",
+					"type": "change"
+				},
+				{
+					"change": "Highscores!",
+					"type": "addition"
+				}
+			],
+			"date": "2026-04-08"
+		},
+		{
 			"version": "0.2.0",
 			"changes": [
 				{

@@ -1,3 +1,9 @@
+# 0.3.0 - 2026-04-08
+
+Mostly a codebase update NGL
+- change : Score doesn't save between sessions now, only between switching from states
+- addition : Highscores!
+
 # 0.2.0 - 2026-04-08
 
 - addition : Saves
@@ -14,4 +20,4 @@
 
 Inital Release
 
-<!-- Generated: 2026-04-08 15:00:44 -->
+<!-- Generated: 2026-04-08 15:31:08 -->
