@@ -4,7 +4,7 @@
 
 	<!-- _________________________________ Custom _______________________________ -->
 
-	<app title="simpleClick" file="simpleClick" />
+	<app title="Simple Click" file="simpleClick" />
 	<app company="Maki" />
 	<app version="1.0" />
 
