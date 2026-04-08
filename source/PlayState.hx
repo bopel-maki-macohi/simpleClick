@@ -14,8 +14,8 @@ class PlayState extends FlxState
 
 	public var _object:FlxSprite;
 
-	public static var score:Int = 0;
-	public var _highscore:Int = 0;
+	public static var score:MInt = 0;
+	public var _highscore:MInt = 0;
 	public var _scoreText:FlxText;
 
 	override public function create()
