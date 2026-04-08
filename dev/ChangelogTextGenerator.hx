@@ -28,43 +28,37 @@ class ChangelogTextGenerator
 			if (element.name == 'entrys') entrys = element;
 		}
 
-		textGen();
 		jsonGen();
+		textGen();
 	}
 
 	static function textGen()
 	{
 		var t:String = '';
 
-		for (entry in entrys.elements)
+		var j:Dynamic = Json.parse(File.getContent('assets/CHANGELOG.json'));
+		var entrys:Array<Dynamic> = j.entrys;
+
+		for (entry in entrys)
 		{
-			if (entry.name == 'entry')
+			t += '# ${entry.version} - ${entry.date}\n\n';
+
+			var changes:Array<Dynamic> = entry.changes;
+			for (change in changes)
 			{
-				t += '# ' + entry.att.resolve('version') + ' - ' + entry.att.resolve('date') + '\n\n';
-
-				var entryElms:Array<Dynamic> = [];
-				for (e in entry.elements)
-					entryElms.push(
-						{
-							name: e.name,
-							innerData: e.innerData,
-						});
-
-				for (entr in entryElms)
+				switch (change.type.toLowerCase())
 				{
-					if (entr.name == 'message')
-					{
-						t += entr.innerData;
+					case 'message':
+						t += '${change.change}\n';
 
-						if (entryElms.filter(f -> return f.name != 'message').length > 0) t += '\n';
-					}
-					else
-						t += '- ' + entr.name + ' : ' + entr.innerData;
-					t += '\n';
+						if (entry.changes.filter(d -> return d.type != change.type).length > 0) t += '\n';
+
+					default:
+						t += '- ${change.type} : ${change.change}\n';
 				}
-
-				t += '\n';
 			}
+
+			t += '\n';
 		}
 
 		t += '<!-- Generated: ${Date.now()} -->';
