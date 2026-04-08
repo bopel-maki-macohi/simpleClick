@@ -8,7 +8,7 @@
 	<app company="Maki" />
 	<app version="1.0" />
 
-	<define name="--dce full" unless="debug" />
+	<haxeflag name="--dce full" unless="debug" />
 
 	<!-- _________________________ Application Settings _________________________ -->
 
