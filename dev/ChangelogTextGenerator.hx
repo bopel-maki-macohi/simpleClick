@@ -16,7 +16,7 @@ class ChangelogTextGenerator
 
 	public static function main()
 	{
-		changelogRawXML = sys.io.File.getContent('dev/changelogVariations/CHANGELOG.xml');
+		changelogRawXML = sys.io.File.getContent('CHANGELOG.xml');
 
 		changelogXml = new Access(Xml.parse(changelogRawXML));
 		entrys = null;
