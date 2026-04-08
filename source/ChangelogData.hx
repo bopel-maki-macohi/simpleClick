@@ -13,5 +13,6 @@ typedef ChangelogEntryData =
 typedef ChangelogEntryChangeData =
 {
 	change:String,
-	type:String
+	type:String,
+	?issuenumber:String,
 }

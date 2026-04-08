@@ -1,21 +1,41 @@
 {
 	"entrys": [
 		{
+			"version": "0.3.1",
+			"changes": [
+				{
+					"issuenumber": null,
+					"change": "Github issues can now be included in the changelog",
+					"type": "addition"
+				},
+				{
+					"issuenumber": "1",
+					"change": "Fixed \"highscore\" save field being null when you are playing for the first time",
+					"type": "fix"
+				}
+			],
+			"date": "2026-04-08"
+		},
+		{
 			"version": "0.3.0",
 			"changes": [
 				{
+					"issuenumber": null,
 					"change": "Mostly a codebase update for the save system NGL",
 					"type": "message"
 				},
 				{
+					"issuenumber": null,
 					"change": "\"message\" changelog entry types now have an extra line break if there are actually changes n stuff",
 					"type": "change"
 				},
 				{
+					"issuenumber": null,
 					"change": "Score doesn't save between sessions now, only between switching from states",
 					"type": "change"
 				},
 				{
+					"issuenumber": null,
 					"change": "Highscores!",
 					"type": "addition"
 				}
@@ -26,10 +46,12 @@
 			"version": "0.2.0",
 			"changes": [
 				{
+					"issuenumber": null,
 					"change": "Saves",
 					"type": "addition"
 				},
 				{
+					"issuenumber": null,
 					"change": "Changelog State (C to toggle between it)",
 					"type": "addition"
 				}
@@ -40,18 +62,22 @@
 			"version": "0.1.0",
 			"changes": [
 				{
+					"issuenumber": null,
 					"change": "Score Text",
 					"type": "addition"
 				},
 				{
+					"issuenumber": null,
 					"change": "Score",
 					"type": "addition"
 				},
 				{
+					"issuenumber": null,
 					"change": "Object to click",
 					"type": "addition"
 				},
 				{
+					"issuenumber": null,
 					"change": "Version Text",
 					"type": "addition"
 				}
@@ -62,6 +88,7 @@
 			"version": "0.0.0",
 			"changes": [
 				{
+					"issuenumber": null,
 					"change": "Inital Release",
 					"type": "message"
 				}
