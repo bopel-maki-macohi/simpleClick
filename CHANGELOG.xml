@@ -1,5 +1,8 @@
 <!DOCTYPE simpleClick-changelog-xml>
 
+<!-- dont forget to remove the space between the -'s -->
+<!-- haxe -m dev.ChangelogTextGenerator - -interp -->
+
 <entrys>
     <entry version="0.2.0" date="2026-04-08">
         <addition>Changelog State</addition>
