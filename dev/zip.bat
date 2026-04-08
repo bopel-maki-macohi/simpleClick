@@ -5,3 +5,5 @@ wsl mv "html5.zip" ../../../../export/
 cd "../../../../export/release/windows/bin/"
 wsl zip -r "windows.zip" *
 wsl mv "windows.zip" ../../../../export/
+
+cd ../../../../
