@@ -24,6 +24,20 @@ class ModState extends FlxState
 		makeText();
 
 		if (FlxG.keys.justReleased.M) FlxG.switchState(() -> new PlayState());
+
+		if (ModCore.validModMetadatas.length > 1)
+		{
+			if (FlxG.keys.justReleased.SPACE)
+			{
+				final mod = ModCore.validModMetadatas[_currentSelection].dirName;
+
+				if (Save.instance.enabledMods.get().contains(mod)) Save.instance.enabledMods.get().remove(mod);
+				else
+					Save.instance.enabledMods.get().push(mod);
+
+				ModCore.reload();
+			}
+		}
 	}
 
 	function makeText()
@@ -31,19 +45,21 @@ class ModState extends FlxState
 		_text.text = 'No mods';
 		_text.screenCenter();
 
-		if (ModCore.loadedModIds.length < 1) return;
+		if (ModCore.validModMetadatas.length < 1) return;
 
 		_text.setPosition(0, 0);
-		_text.text = '${_currentSelection + 1} / ${ModCore.loadedModIds.length}\n\n';
+		_text.text = '${_currentSelection + 1} / ${ModCore.validModMetadatas.length}\n\n';
 
-		var mod:ModMetadata = ModCore.loadedModMetadatas[_currentSelection];
+		var mod:ModMetadata = ModCore.validModMetadatas[_currentSelection];
 
 		_text.text += 'Title: ' + mod.title + '\n';
 		_text.text += 'ID: ' + mod.id + '\n\n';
-		
-        _text.text += 'Mod Version: ' + mod.modVersion + '\n';
+
+		_text.text += 'Mod Version: ' + mod.modVersion + '\n';
 		_text.text += 'API Version: ' + mod.apiVersion + '\n\n';
 
 		_text.text += 'Description: ' + mod.description + '\n\n';
+
+		_text.text += 'Enabled: ' + Save.instance.enabledMods.get().contains(mod.dirName) + '\n\n';
 	}
 }

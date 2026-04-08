@@ -8,6 +8,15 @@ using StringTools;
 
 class ModCore
 {
+	public static function reload()
+	{
+		ModCore.getValidModMetas();
+		
+		loadEnabledMods();
+
+		FlxG.resetState();
+	}
+
 	public static var modRoot:String = 'mods/';
 
 	public static var apiVersionRule(get, never):VersionRule;
@@ -20,6 +29,12 @@ class ModCore
 	}
 
 	static var modFileSystem:Null<ZipFileSystem> = null;
+
+	public static function loadEnabledMods()
+	{
+		makeModRoot();
+		loadMods(Save.instance.enabledMods.get());
+	}
 
 	public static function loadAllMods()
 	{
@@ -36,7 +51,7 @@ class ModCore
 
 	public static var loadedModDirs:Array<String> = [];
 	public static var loadedModIds:Array<String> = [];
-	public static var loadedModMetadatas:Array<ModMetadata> = [];
+	public static var validModMetadatas:Array<ModMetadata> = [];
 
 	static function loadMods(mods:Array<String>)
 	{
@@ -102,29 +117,35 @@ class ModCore
 	{
 		var dirs = [];
 
-		for (meta in getModMetas())
+		for (meta in getValidModMetas())
 			dirs.push(meta.dirName);
 
 		return dirs;
 	}
 
-	public static function getModMetas()
+	public static function getValidModMetas()
 	{
-		loadedModMetadatas = Polymod.scan(
+		validModMetadatas = Polymod.scan(
 			{
 				modRoot: modRoot,
 				errorCallback: onError,
 				apiVersionRule: apiVersionRule,
 			});
 
-		return loadedModMetadatas;
+		return validModMetadatas;
 	}
 
 	static function onError(error:PolymodError)
 	{
 		var plannedMsg = '[${error.severity} / ${error.code}]\t'.toUpperCase() + '${error.message}';
 
-		if ([MOD_MISSING_ICON].contains(error.code)) return;
+		if ([
+			MOD_MISSING_ICON,
+			SCRIPT_PARSE_START,
+			MOD_LOAD_START,
+			MOD_LOAD_DONE,
+			FRAMEWORK_INIT
+		].contains(error.code)) return;
 
 		switch (error.code)
 		{
