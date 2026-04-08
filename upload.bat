@@ -8,4 +8,4 @@ echo WINDOWS
 lime build windows --times
 butler push ./export/release/windows/bin bopel-maki-macohi/simple-click:windows --userversion-file version.txt
 
-.\zip.bat
+.\dev/zip.bat
