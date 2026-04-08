@@ -4,7 +4,7 @@ import flixel.FlxState;
 
 class ChangelogState extends FlxState
 {
-	public static var _changelog:ChangelogData = null;
+	public static var changelog:ChangelogData = null;
 
 	public var _text:FlxText;
 
@@ -15,7 +15,7 @@ class ChangelogState extends FlxState
 		_text = new FlxText(10, 10, FlxG.width, '', 16);
 		add(_text);
 
-		for (entry in _changelog.entrys)
+		for (entry in ChangelogState.changelog.entrys)
 		{
 			_text.text += '${entry.version} (${entry.date})\n\n';
 

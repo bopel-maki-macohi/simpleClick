@@ -9,7 +9,7 @@ class Main extends Sprite
 	{
 		super();
 
-		Save._instance = new Save();
+		Save.instance = new Save();
 
 		addChild(new FlxGame(0, 0, PlayState));
 	}

@@ -21,7 +21,7 @@ class PlayState extends FlxState
 	{
 		super.create();
 
-		ChangelogState._changelog = Json.parse(Assets.getText('assets/CHANGELOG.json'));
+		ChangelogState.changelog = Json.parse(Assets.getText('assets/CHANGELOG.json'));
 
 		_versionText = new FlxText(0, 0, 0, FlxG.stage.application.meta.get('version'), 16);
 		add(_versionText);
@@ -35,7 +35,7 @@ class PlayState extends FlxState
 		_scoreText.alignment = CENTER;
 		add(_scoreText);
 
-		_score = Save._instance.score;
+		_score = Save.instance.score;
 	}
 
 	override public function update(elapsed:Float)
@@ -45,7 +45,7 @@ class PlayState extends FlxState
 		_scoreText.text = 'SCORE:\n' + _score;
 		_scoreText.screenCenter(X);
 		
-		Save._instance.score = _score;
+		Save.instance.score = _score;
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new ChangelogState());

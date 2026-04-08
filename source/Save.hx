@@ -2,7 +2,7 @@ import flixel.util.FlxSave;
 
 class Save extends FlxSave
 {
-	public static var _instance:Save;
+	public static var instance:Save;
 
 	override public function new()
 	{
