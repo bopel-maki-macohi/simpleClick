@@ -56,10 +56,10 @@ class ModuleHandler
 	}
 
 	static function onStateSwitchStart():Void
-		callEvent(new StateChangeScriptEvent(STATE_CHANGE_BEGIN, FlxG.state, true));
+		callEvent(new StateChangeScriptEvent(STATE_CHANGE_BEGIN, FlxG.state));
 
 	static function onStateSwitchComplete():Void
-		callEvent(new StateChangeScriptEvent(STATE_CHANGE_END, FlxG.state, true));
+		callEvent(new StateChangeScriptEvent(STATE_CHANGE_END, FlxG.state));
 
 	static function addToModuleCache(module:Module):Void
 	{
