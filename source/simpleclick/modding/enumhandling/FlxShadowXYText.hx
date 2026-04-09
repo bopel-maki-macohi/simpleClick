@@ -9,6 +9,6 @@ class FlxShadowXYText extends FlxText
 	{
 		super(X, Y, FieldWidth, Text, Size, EmbeddedFont);
 
-		borderStyle = SHADOW_XY(SX, SY);
+		setBorderStyle(SHADOW_XY(SX, SY));
 	}
 }

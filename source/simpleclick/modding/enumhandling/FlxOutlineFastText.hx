@@ -8,6 +8,6 @@ class FlxOutlineFastText extends FlxText
 	{
 		super(X, Y, FieldWidth, Text, Size, EmbeddedFont);
 
-		borderStyle = OUTLINE_FAST;
+		setBorderStyle(OUTLINE_FAST);
 	}
 }

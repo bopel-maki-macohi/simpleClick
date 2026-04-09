@@ -8,6 +8,6 @@ class FlxOutlineText extends FlxText
 	{
 		super(X, Y, FieldWidth, Text, Size, EmbeddedFont);
 
-		borderStyle = OUTLINE;
+		setBorderStyle(OUTLINE);
 	}
 }

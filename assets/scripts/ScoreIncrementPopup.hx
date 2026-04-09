@@ -20,12 +20,13 @@ class ScoreIncrementPopup extends Module
 
 		var popup:FlxOutlineText = new FlxOutlineText(0, 0, 0, '+ ${event.increment}', 32);
 
-		popup.setFormat(null, 16, FlxColor.LIME, 'center', null, FlxColor.WHITE);
+		popup.setFormat(null, 16, FlxColor.LIME, 'center');
+		popup.setBorderStyle(popup.borderStyle, FlxColor.WHITE, 4);
 		popup.screenCenter();
 
 		PlayState.instance.add(popup);
 
-		FlxTween.tween(popup, {alpha: 0}, 1,
+		FlxTween.tween(popup, {alpha: 0, y: -popup.height * 4}, 1,
 			{
 				ease: FlxEase.sineInOut,
 				onComplete: t -> {
