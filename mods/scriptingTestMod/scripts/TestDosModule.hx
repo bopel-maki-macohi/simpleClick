@@ -4,7 +4,7 @@ import scripting.Module;
 
 class TestDosModule extends Module
 {
-	override public function new()
+	public function new()
 	{
 		super('test2');
 	}
