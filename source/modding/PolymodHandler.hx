@@ -39,9 +39,9 @@ class PolymodHandler
 	 */
 	static final MOD_FOLDER:String =
 		#if (REDIRECT_ASSETS_FOLDER && mac)
-		'../../../../../../../example_mods'
+		'../../../../../../../mods'
 		#elseif REDIRECT_ASSETS_FOLDER
-		'../../../../example_mods'
+		'../../../../mods'
 		#else
 		'mods'
 		#end;
