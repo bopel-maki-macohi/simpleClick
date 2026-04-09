@@ -1,5 +1,8 @@
 # 0.4.0 - 2026-04-08
 
+This was supposed to add mod support n shit but it didn't work so that's fun.
+
+- change : "CHANGELOG.json" has been moved to "data/CHANGELOG.json"
 - addition : The OTC (Object To Click) now has a little squish when it's clicked
 
 # 0.3.1 - 2026-04-08
@@ -31,4 +34,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-08 17:48:16 -->
+<!-- Generated: 2026-04-08 22:38:01 -->

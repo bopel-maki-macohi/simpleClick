@@ -24,7 +24,7 @@
 
 	<haxedef name="POLYMOD_DEBUG" if="debug" />
 
-	<define name="FEATURE_MODDING" />
+	<!-- <define name="FEATURE_MODDING" /> -->
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 

@@ -5,6 +5,16 @@
 			"changes": [
 				{
 					"issuenumber": null,
+					"change": "This was supposed to add mod support n shit but it didn't work so that's fun.",
+					"type": "message"
+				},
+				{
+					"issuenumber": null,
+					"change": "\"CHANGELOG.json\" has been moved to \"data/CHANGELOG.json\"",
+					"type": "change"
+				},
+				{
+					"issuenumber": null,
 					"change": "The OTC (Object To Click) now has a little squish when it's clicked",
 					"type": "addition"
 				}
