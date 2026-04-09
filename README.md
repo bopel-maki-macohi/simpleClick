@@ -22,8 +22,6 @@ I just REALLY wanted to make something...
         - Windows 10/11 SDK
     - Mac: [`lime setup mac` Documentation](https://lime.openfl.org/docs/advanced-setup/macos/)
     - Linux: [`lime setup linux` Documentation](https://lime.openfl.org/docs/advanced-setup/linux/)
-        - One of Funkin's dependencies uses libVLC, which requires you to install some development packages to be able to compile.
-          Command for Ubuntu/Debian based systems: `sudo apt install libvlc-dev libvlccore-dev libvlccore9`, and for other distros, please refer to [hxvlc's documentation](https://github.com/MAJigsaw77/hxvlc?tab=readme-ov-file#dependencies)
     - HTML5: Compiles without any extra setup
 
 Now do `lime test <ur platform>` and you are good.
