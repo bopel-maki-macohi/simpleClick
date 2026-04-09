@@ -4,7 +4,7 @@
 <!-- haxe -m dev.ChangelogTextGenerator - -interp -->
 
 <entrys>
-    <entry version="0.4.0" date="2026-04-08">
+    <entry version="0.4.0" date="2026-04-09">
         <addition>MOD MENU (toggle to and from with "M")</addition>
         <change>"CHANGELOG.json" has been moved to "data/CHANGELOG.json"</change>
         <addition>MOD SUPPORT VIA POLYMOD!</addition>
