@@ -69,14 +69,14 @@ class UpdateScriptEvent extends ScriptEvent
 
 class StateChangeScriptEvent extends ScriptEvent
 {
-	public var targetState(default, null):FlxState;
+	public var currentState(default, null):FlxState;
 
-	public function new(type:ScriptEventType, targetState:FlxState):Void
+	public function new(type:ScriptEventType, currentState:FlxState):Void
 	{
 		super(type, false);
-		this.targetState = targetState;
+		this.currentState = currentState;
 
-		toStringFields.insert(1, 'targetState');
+		toStringFields.insert(1, 'currentState');
 	}
 }
 

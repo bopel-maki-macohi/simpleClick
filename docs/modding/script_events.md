@@ -22,9 +22,13 @@ Every event calls `onScriptEvent(event:ScriptEvent)`. So they all go through the
 
 - STATE_CHANGE_BEGIN : Calls `onStateChangeBegin(event:StateChangeScriptEvent)`
     - Calls right before a state change
+    - (Important) Fields:
+        - `currentState` : current state before the change
 
 - STATE_CHANGE_END : Calls `onStateChangeBegin(event:StateChangeScriptEvent)`
     - Calls right after a state change
+    - (Important) Fields:
+        - `currentState` : current state before after change
 
 - OBJECT_CLICK_PRE : Calls `onPreObjectClick(event:ObjectScriptEvent)`
     - Calls before the object click goes through
