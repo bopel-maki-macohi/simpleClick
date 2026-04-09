@@ -54,7 +54,9 @@ class PlayState extends FlxState
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new ChangelogState());
+		#if FEATURE_MODDING
 		if (FlxG.keys.justReleased.M) FlxG.switchState(() -> new ModState());
+		#end
 	}
 
 	function onClick()

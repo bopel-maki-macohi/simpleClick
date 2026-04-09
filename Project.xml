@@ -24,6 +24,8 @@
 
 	<haxedef name="POLYMOD_DEBUG" if="debug" />
 
+	<define name="FEATURE_MODDING" if="debug" />
+
 	<!-- _____________________________ Path Settings ____________________________ -->
 
 	<set name="BUILD_DIR" value="export/release" />
