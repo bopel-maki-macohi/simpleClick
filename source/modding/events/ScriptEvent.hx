@@ -86,10 +86,11 @@ class ObjectScriptEvent extends ScriptEvent
 
 	public var increment:Int = 1;
 
-	public function new(object:FlxSprite, type:ScriptEventType, cancelable:Bool):Void
+	public function new(object:FlxSprite, increment:Int, type:ScriptEventType, cancelable:Bool):Void
 	{
 		super(type, cancelable);
 		this.object = object;
+		this.increment = increment;
 
 		toStringFields.insert(1, 'object');
 		toStringFields.insert(2, 'increment');

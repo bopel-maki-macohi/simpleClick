@@ -41,4 +41,5 @@ Every event calls `onScriptEvent(event:ScriptEvent)`. So they all go through the
     - Calls after the object click goes through and the score increment and "score > highscore" check
     - (Important) Fields:
         - `object` : The object
+        - `increment` : The score that was given
     - Cancellable : Prevents the lil object anim (how could you)

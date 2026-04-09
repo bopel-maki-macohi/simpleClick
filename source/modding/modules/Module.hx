@@ -9,7 +9,7 @@ typedef ModuleParams =
 }
 
 @:nullSafety
-class Module implements IStageChangingScriptedClass
+class Module implements IStageChangingScriptedClass implements IObjectScriptedClass
 {
 	public var active(default, set):Bool = true;
 
@@ -20,6 +20,12 @@ class Module implements IStageChangingScriptedClass
 
 	public var moduleId(default, null):String = 'UNKNOWN';
 
+	/**
+	 * Determines the order in which modules receive events.
+	 * You can modify this to change the order in which a given module receives events.
+	 *
+	 * Priority 1 is processed before Priority 1000, etc.
+	 */
 	public var priority(default, set):Int = 1000;
 
 	function set_priority(value:Int):Int
@@ -49,9 +55,12 @@ class Module implements IStageChangingScriptedClass
 	public function onScriptEvent(event:ScriptEvent) {}
 
 	public function onCreate(event:ScriptEvent) {}
-    public function onDestroy(event:ScriptEvent) {}
+	public function onDestroy(event:ScriptEvent) {}
 	public function onUpdate(event:UpdateScriptEvent) {}
 
 	public function onStateChangeBegin(event:StateChangeScriptEvent) {}
 	public function onStateChangeEnd(event:StateChangeScriptEvent) {}
+
+	public function onPreObjectClick(event:ObjectScriptEvent) {}
+	public function onPostObjectClick(event:ObjectScriptEvent) {}
 }

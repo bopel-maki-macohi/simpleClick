@@ -23,9 +23,21 @@ class PlayState extends BaseState
 	public var _highscore:Int = 0;
 	public var _scoreText:FlxText;
 
+	public static var instance:PlayState;
+
+	override function startOutro(onOutroComplete:() -> Void)
+	{
+		instance = null;
+
+		super.startOutro(onOutroComplete);
+	}
+
 	override public function create()
 	{
 		super.create();
+
+		if (instance != null) instance = null;
+		instance = this;
 
 		ModState.currentSelection = 0;
 
@@ -60,24 +72,33 @@ class PlayState extends BaseState
 
 	public function onClick()
 	{
-		var preEvent:ObjectScriptEvent = new ObjectScriptEvent(_object, OBJECT_CLICK_PRE, true);
+		var preEvent:ObjectScriptEvent = new ObjectScriptEvent(_object, 1, OBJECT_CLICK_PRE, true);
 		dispatch(preEvent);
+
 		if (preEvent.eventCanceled) return;
 
-		PlayState.score += preEvent.increment;
+		var scoreIncrement:Int = preEvent.increment;
 
-		if (PlayState.score > Save.instance.highscore.get()) Save.instance.highscore.set(PlayState.score);
+		incrementScore(scoreIncrement);
 
-		var postEvent:ObjectScriptEvent = new ObjectScriptEvent(_object, OBJECT_CLICK_POST, true);
+		var postEvent:ObjectScriptEvent = new ObjectScriptEvent(_object, scoreIncrement, OBJECT_CLICK_POST, true);
 		dispatch(postEvent);
-		if (postEvent.eventCanceled) return;
 
-		_object.scale.set(0.9, 0.9);
+		if (!postEvent.eventCanceled)
+		{
+			_object.scale.set(0.9, 0.9);
 
-		FlxTween.cancelTweensOf(_object);
-		FlxTween.tween(_object, {'scale.x': 1, 'scale.y': 1}, .2,
-			{
-				ease: FlxEase.sineOut
-			});
+			FlxTween.cancelTweensOf(_object);
+			FlxTween.tween(_object, {'scale.x': 1, 'scale.y': 1}, .2,
+				{
+					ease: FlxEase.sineOut
+				});
+		}
+	}
+
+	public function incrementScore(scoreIncrement:Int)
+	{
+		PlayState.score += scoreIncrement;
+		if (PlayState.score > Save.instance.highscore.get()) Save.instance.highscore.set(PlayState.score);
 	}
 }
