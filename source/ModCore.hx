@@ -1,3 +1,4 @@
+import scripting.modules.ModuleHandler;
 import polymod.hscript.HScriptable.HScriptParams;
 import macros.ClassMacro;
 import polymod.format.ParseRules;
@@ -13,10 +14,14 @@ class ModCore
 {
 	public static function reload()
 	{
+		ModuleHandler.clear();
+
 		Polymod.clearCache();
 		Polymod.clearScripts();
 
 		loadEnabledMods();
+
+		ModuleHandler.load();
 
 		// FlxG.resetState();
 	}
@@ -32,7 +37,7 @@ class ModCore
 		return '>=${curVersion.major}.${curVersion.minor}.0 <${curVersion.major}.${curVersion.minor + 1}.0';
 	}
 
-	static var modFileSystem:Null<ZipFileSystem> = null;
+	public static var modFileSystem:Null<ZipFileSystem> = null;
 
 	public static function loadEnabledMods()
 	{

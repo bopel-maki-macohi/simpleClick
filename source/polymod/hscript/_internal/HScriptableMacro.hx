@@ -131,6 +131,8 @@ class HScriptableMacro
 							pathName = hscriptParams.pathName;
 						}
 
+						trace(pathName);
+
 						// If pathName is an identifier, call the function or access the variable.
 						var scriptFetchExpr = macro _polymod_scripts.get($v{pathName}, Assets);
 
