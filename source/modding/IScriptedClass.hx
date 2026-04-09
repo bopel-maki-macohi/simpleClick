@@ -19,6 +19,6 @@ interface IStageChangingScriptedClass extends IScriptedClass
 
 interface IObjectScriptedClass extends IScriptedClass
 {
-	public function onPreObjectClick(event:ScriptEvent):Void;
-	public function onPostObjectClick(event:ScriptEvent):Void;
+	public function onPreObjectClick(event:ObjectScriptEvent):Void;
+	public function onPostObjectClick(event:ObjectScriptEvent):Void;
 }

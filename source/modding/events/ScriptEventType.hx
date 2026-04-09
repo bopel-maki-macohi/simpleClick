@@ -4,7 +4,6 @@ enum abstract ScriptEventType(String) from String to String
 {
   var CREATE = 'CREATE';
   var DESTROY = 'DESTROY';
-  var ADDED = 'ADDED';
   var UPDATE = 'UPDATE';
 
   var STATE_CHANGE_BEGIN = 'STATE_CHANGE_BEGIN';

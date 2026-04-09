@@ -71,9 +71,9 @@ class StateChangeScriptEvent extends ScriptEvent
 {
 	public var targetState(default, null):FlxState;
 
-	public function new(type:ScriptEventType, targetState:FlxState, cancelable:Bool = false):Void
+	public function new(type:ScriptEventType, targetState:FlxState):Void
 	{
-		super(type, cancelable);
+		super(type, false);
 		this.targetState = targetState;
 
 		toStringFields.insert(1, 'targetState');
