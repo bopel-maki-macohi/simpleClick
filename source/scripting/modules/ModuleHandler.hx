@@ -67,7 +67,7 @@ class ModuleHandler
 		}
 	}
 
-	static function clear()
+	public static function clear()
 	{
 		for (module in modules)
 		{

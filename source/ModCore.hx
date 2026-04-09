@@ -1,3 +1,4 @@
+import polymod.format.ParseRules;
 import scripting.modules.ModuleHandler;
 import flixel.FlxG;
 import thx.semver.Version;
@@ -11,20 +12,19 @@ class ModCore
 {
 	public static function reload()
 	{
-		Polymod.clearCache();
-		Polymod.clearScripts();
-		Polymod.reload();
+		ModuleHandler.clear();
 
-		ModuleHandler.load();
-
-		ModCore.getValidModMetas();
+		// Polymod.clearCache();
+		// Polymod.clearScripts();
+		// Polymod.reload();
 
 		loadEnabledMods();
 
-		FlxG.resetState();
+		ModuleHandler.load();
+		// FlxG.resetState();
 	}
 
-	public static var modRoot:String = 'mods/';
+	public static var modRoot:String = './mods/';
 
 	public static var apiVersionRule(get, never):VersionRule;
 
@@ -62,9 +62,10 @@ class ModCore
 
 	static function loadMods(mods:Array<String>)
 	{
+		Polymod.onError = onError;
 		if (modFileSystem == null) modFileSystem = buildFileSystem();
 
-		trace('apiVersionRule: $apiVersionRule');
+		// trace('apiVersionRule: $apiVersionRule');
 
 		// buildImports here
 
@@ -72,7 +73,6 @@ class ModCore
 			{
 				modRoot: modRoot,
 				apiVersionRule: apiVersionRule,
-				errorCallback: onError,
 
 				dirs: mods,
 
@@ -80,13 +80,13 @@ class ModCore
 
 				customFilesystem: modFileSystem,
 
-				//   frameworkParams: buildFrameworkParams(),
+				// frameworkParams: buildFrameworkParams(),
 
 				// List of filenames to ignore in mods. Use the default list to ignore the metadata file, etc.
-				//   ignoredFiles: buildIgnoreList(),
+				ignoredFiles: buildIgnoreList(),
 
 				// Parsing rules for various data formats.
-				//   parseRules: buildParseRules(),
+				parseRules: buildParseRules(),
 
 				skipDependencyErrors: true,
 
@@ -112,7 +112,6 @@ class ModCore
 
 	static function buildFileSystem():polymod.fs.ZipFileSystem
 	{
-		Polymod.onError = onError;
 		return new ZipFileSystem(
 			{
 				modRoot: modRoot,
@@ -135,7 +134,6 @@ class ModCore
 		validModMetadatas = Polymod.scan(
 			{
 				modRoot: modRoot,
-				errorCallback: onError,
 				apiVersionRule: apiVersionRule,
 			});
 
@@ -144,15 +142,40 @@ class ModCore
 
 	static function onError(e:PolymodError)
 	{
-		// Trace the message because why the hell not
-		// Only the good errors though
-		// No one cares about framework and missing icons
+		var idontcare = [FRAMEWORK_INIT, MOD_MISSING_ICON, MOD_LOAD_START, MOD_LOAD_DONE,];
+
 		if (e.code == FRAMEWORK_INIT || e.code == MOD_MISSING_ICON) return;
 
-		trace(e.message);
+		trace(Std.string(e.code).toUpperCase() + ' : ' + e.message);
 
-		// Only alert the player of errors because no one cares about the other stuff
-		// Though the player should be aware of dependency problems as well
 		if (e.severity == ERROR || e.code == MOD_DEPENDENCY_UNMET) FlxG.stage.application.window.alert(e.message);
+	}
+
+	/**
+	 * Build a list of file paths that will be ignored in mods.
+	 */
+	static function buildIgnoreList():Array<String>
+	{
+		var result = Polymod.getDefaultIgnoreList();
+
+		result.push('.vscode');
+		result.push('.idea');
+		result.push('.git');
+		result.push('.gitignore');
+		result.push('.gitattributes');
+		result.push('README.md');
+
+		return result;
+	}
+
+	static function buildParseRules():polymod.format.ParseRules
+	{
+		var output:polymod.format.ParseRules = polymod.format.ParseRules.getDefault();
+		// Ensure TXT files have merge support.
+		output.addType('txt', TextFileFormat.LINES);
+
+		// You can specify the format of a specific file, with file extension.
+		// output.addFile("data/introText.txt", TextFileFormat.LINES)
+		return output;
 	}
 }
