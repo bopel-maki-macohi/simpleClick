@@ -7,6 +7,9 @@ enum abstract ScriptEventType(String) from String to String
   var ADDED = 'ADDED';
   var UPDATE = 'UPDATE';
 
+  var STATE_CHANGE_BEGIN = 'STATE_CHANGE_BEGIN';
+  var STATE_CHANGE_END = 'STATE_CHANGE_END';
+
   /**
    * Allow for comparing `ScriptEventType` to `String`.
    */

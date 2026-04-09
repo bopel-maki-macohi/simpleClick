@@ -1,5 +1,7 @@
 package modding.events;
 
+import flixel.FlxState;
+
 class ScriptEvent
 {
 	public var cancelable(default, null):Bool;
@@ -43,4 +45,18 @@ class UpdateScriptEvent extends ScriptEvent
 
 	public override function toString():String
 		return 'elapsed=$elapsed';
+}
+
+class StateChangeScriptEvent extends ScriptEvent
+{
+	public var targetState(default, null):FlxState;
+
+	public function new(type:ScriptEventType, targetState:FlxState, cancelable:Bool = false):Void
+	{
+		super(type, cancelable);
+		this.targetState = targetState;
+	}
+
+	public override function toString():String
+		return 'type=' + type + ' | targetState=' + targetState;
 }

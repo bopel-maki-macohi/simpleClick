@@ -1,5 +1,6 @@
 package;
 
+import modding.modules.ModuleHandler;
 import modding.PolymodHandler;
 import flixel.FlxGame;
 import openfl.display.Sprite;
@@ -12,6 +13,8 @@ class Main extends Sprite
 
 		Save.instance = new Save();
 		Save.instance.init();
+
+		ModuleHandler.buildModuleCallbacks();
 
 		#if FEATURE_MODDING
 		PolymodHandler.forceReloadAssets();

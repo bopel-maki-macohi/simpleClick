@@ -1,7 +1,6 @@
 package modding.events;
 
 import modding.IScriptedClass;
-import modding.modules.Module;
 
 @:nullSafety
 class ScriptEventDispatcher
@@ -13,10 +12,13 @@ class ScriptEventDispatcher
 		target.onScriptEvent(event);
 
 		// If one target says to stop propagation, stop.
-		if (!event.shouldPropagate)
-		{
-			return;
-		}
+		if (!event.shouldPropagate) return;
+
+		#if FEATURE_MODDING_SEDTRACE
+		trace('Calling ${event.type} on ${target}');
+		#end
+
+		target.onScriptEvent(event);
 
 		// IScriptedClass
 		switch (event.type)
@@ -31,6 +33,30 @@ class ScriptEventDispatcher
 				target.onUpdate(cast event);
 				return;
 			default: // Continue;
+		}
+
+		if (Std.isOfType(target, IStageChangingScriptedClass))
+		{
+			var newTarget:IStageChangingScriptedClass = cast(target, IStageChangingScriptedClass);
+
+			if (newTarget == null) return;
+
+			switch (event.type)
+			{
+				case STATE_CHANGE_BEGIN:
+					newTarget.onStateChangeBegin(cast event);
+					return;
+				case STATE_CHANGE_END:
+					newTarget.onStateChangeEnd(cast event);
+					return;
+
+				default:
+			}
+		}
+		else
+		{
+			// If the target doesn't support the event, stop trying to dispatch.
+			if ([ScriptEventType.STATE_CHANGE_BEGIN, ScriptEventType.STATE_CHANGE_END].contains(event.type)) return;
 		}
 
 		// If we reach this line, it means a script event was dispatched while not being properly handled.

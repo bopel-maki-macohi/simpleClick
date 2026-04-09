@@ -10,3 +10,9 @@ interface IScriptedClass
 	public function onDestroy(event:ScriptEvent):Void;
 	public function onUpdate(event:UpdateScriptEvent):Void;
 }
+
+interface IStageChangingScriptedClass extends IScriptedClass
+{
+	public function onStateChangeBegin(event:StateChangeScriptEvent):Void;
+	public function onStateChangeEnd(event:StateChangeScriptEvent):Void;
+}

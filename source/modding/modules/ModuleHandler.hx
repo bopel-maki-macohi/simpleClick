@@ -51,13 +51,15 @@ class ModuleHandler
 
 	public static function buildModuleCallbacks():Void
 	{
-		// FlxG.signals.postStateSwsitch.add(onStateSwitchComplete);
+		FlxG.signals.preStateSwitch.add(onStateSwitchStart);
+		FlxG.signals.postStateSwitch.add(onStateSwitchComplete);
 	}
 
+	static function onStateSwitchStart():Void
+		callEvent(new StateChangeScriptEvent(STATE_CHANGE_BEGIN, FlxG.state, true));
+
 	static function onStateSwitchComplete():Void
-	{
-		// callEvent(new StateChangeScriptEvent(STATE_CHANGE_END, FlxG.state, true));
-	}
+		callEvent(new StateChangeScriptEvent(STATE_CHANGE_END, FlxG.state, true));
 
 	static function addToModuleCache(module:Module):Void
 	{
@@ -142,19 +144,20 @@ class ModuleHandler
 		for (moduleId in modulePriorityOrder)
 		{
 			var module:Null<Module> = moduleCache.get(moduleId);
+
 			// The module needs to be active to receive events.
-			if (module != null && module.active)
+			if (module == null || !module.active) continue;
+
+			// Only call the event if the current state is what the module's state is.
+			if (module.state != null)
 			{
-				if (module.state != null)
+				if (!(Type.getClass(FlxG.state) == module.state) && !(Type.getClass(FlxG.state?.subState) == module.state))
 				{
-					// Only call the event if the current state is what the module's state is.
-					if (!(Type.getClass(FlxG.state) == module.state) && !(Type.getClass(FlxG.state?.subState) == module.state))
-					{
-						continue;
-					}
+					continue;
 				}
-				ScriptEventDispatcher.callEvent(module, event);
 			}
+
+			ScriptEventDispatcher.callEvent(module, event);
 		}
 	}
 
