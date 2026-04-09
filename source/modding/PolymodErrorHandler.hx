@@ -7,7 +7,13 @@ class PolymodErrorHandler
 {
 	public static function onError(e:PolymodError)
 	{
-		var idontcare = [FRAMEWORK_INIT, MOD_MISSING_ICON,];
+		var idontcare = [
+			FRAMEWORK_INIT,
+			MOD_MISSING_ICON,
+			MOD_LOAD_START,
+			MOD_LOAD_DONE,
+			SCRIPT_PARSE_START
+		];
 
 		if (idontcare.contains(e.code)) return;
 		if (e.message.startsWith('Registering scripted class ')) return;

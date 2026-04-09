@@ -103,7 +103,7 @@ class PolymodHandler
 		}
 		else
 		{
-			trace('Attempting to load ${dirs.length} mods...');
+			trace('Attempting to load ${dirs.length} mod(s)...');
 		}
 
 		buildImports();
@@ -391,7 +391,7 @@ class PolymodHandler
 				fileSystem: modFileSystem,
 				errorCallback: PolymodErrorHandler.onError
 			});
-		trace('Found ${allMods.length} mods when scanning.');
+		trace('Found ${allMods.length} mod(s) when scanning.');
 		return allMods;
 	}
 
