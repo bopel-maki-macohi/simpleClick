@@ -1,6 +1,4 @@
-package mods.scriptingTestMod.scripts;
-
-import scripting.Module;
+import modding.modules.Module;
 
 class TestDosModule extends Module
 {

@@ -1,4 +1,4 @@
-package scripting;
+package modding.modules;
 
 import polymod.hscript.HScriptedClass;
 

@@ -1,3 +1,4 @@
+import modding.PolymodHandler;
 import flixel.FlxG;
 import polymod.Polymod.ModMetadata;
 import flixel.text.FlxText;
@@ -25,20 +26,20 @@ class ModState extends FlxState
 
 		if (FlxG.keys.justReleased.M) FlxG.switchState(() -> new PlayState());
 
-		if (ModCore.validModMetadatas.length > 1)
+		if (PolymodHandler.allMods.length > 1)
 		{
 			if (FlxG.keys.anyJustPressed([A, LEFT])) currentSelection--;
 			if (FlxG.keys.anyJustPressed([D, RIGHT])) currentSelection++;
 
 			if (FlxG.keys.justReleased.SPACE)
 			{
-				final mod = ModCore.validModMetadatas[currentSelection].dirName;
+				final mod = PolymodHandler.allMods[currentSelection].dirName;
 
 				if (Save.instance.enabledMods.get().contains(mod)) Save.instance.enabledMods.get().remove(mod);
 				else
 					Save.instance.enabledMods.get().push(mod);
 
-				ModCore.reload();
+				PolymodHandler.forceReloadAssets();
 			}
 		}
 	}
@@ -48,15 +49,15 @@ class ModState extends FlxState
 		_text.text = 'No mods';
 		_text.screenCenter();
 
-		if (ModCore.validModMetadatas.length < 1) return;
+		if (PolymodHandler.allMods.length < 1) return;
 
 		if (currentSelection < 0) currentSelection = 0;
-		if (currentSelection > ModCore.validModMetadatas.length - 1) currentSelection = ModCore.validModMetadatas.length - 1;
+		if (currentSelection > PolymodHandler.allMods.length - 1) currentSelection = PolymodHandler.allMods.length - 1;
 
 		_text.setPosition(0, 0);
-		_text.text = '${currentSelection + 1} / ${ModCore.validModMetadatas.length}\n\n';
+		_text.text = '${currentSelection + 1} / ${PolymodHandler.allMods.length}\n\n';
 
-		var mod:ModMetadata = ModCore.validModMetadatas[currentSelection];
+		var mod:ModMetadata = PolymodHandler.allMods[currentSelection];
 
 		_text.text += 'Title: ' + mod.title + '\n';
 		_text.text += 'ID: ' + mod.id + '\n\n';

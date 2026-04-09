@@ -1,5 +1,6 @@
 package;
 
+import modding.PolymodHandler;
 import flixel.FlxGame;
 import openfl.display.Sprite;
 
@@ -13,8 +14,7 @@ class Main extends Sprite
 		Save.instance.init();
 
 		#if FEATURE_MODDING
-		ModCore.getValidModMetas();
-		ModCore.reload();
+		PolymodHandler.loadEnabledMods();
 		#end
 
 		addChild(new FlxGame(0, 0, PlayState));
