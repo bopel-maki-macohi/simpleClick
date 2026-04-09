@@ -71,9 +71,9 @@ class ModCore
 
 		buildImports();
 
-		HScriptParams.OPTIONAL_DEFAULT = true;
-		HScriptParams.CANCELLABLE_DEFAULT = true;
-		HScriptParams.RUN_BEFORE_DEFAULT = true;
+		// HScriptParams.OPTIONAL_DEFAULT = true;
+		// HScriptParams.CANCELLABLE_DEFAULT = true;
+		// HScriptParams.RUN_BEFORE_DEFAULT = true;
 
 		var loadedModList:Array<ModMetadata> = Polymod.init(
 			{
