@@ -2,7 +2,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
-import modding.events.ScriptEvent.ObjectScriptEvent;
+import modding.events.ScriptEvent;
 import modding.modules.Module;
 
 class ScoreIncrementPopup extends Module
