@@ -4,6 +4,13 @@
 <!-- haxe -m dev.ChangelogTextGenerator - -interp -->
 
 <entrys>
+    <entry version="0.5.0" date="2026-04-09">
+        <addition>SCRIPTING SUPPORT! IT'S HERE!!!!!!!!!!!!!!!</addition>
+        <fix link="https://github.com/FunkinCrew/polymod/pull/389">Bumped polymod to fix haxe's completion server slowness.</fix>
+        <change>Mod stuff is enabled now</change>
+        <addition>MOD SUPPORT! IT'S HERE</addition>
+    </entry>
+
     <entry version="0.4.0" date="2026-04-08">
         <message>This was supposed to add mod support n shit but it didn't work so that's fun.</message>
 

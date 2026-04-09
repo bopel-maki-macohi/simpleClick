@@ -1,20 +1,53 @@
 {
 	"entrys": [
 		{
+			"version": "0.5.0",
+			"changes": [
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "SCRIPTING SUPPORT! IT'S HERE!!!!!!!!!!!!!!!",
+					"type": "addition"
+				},
+				{
+					"issuenumber": null,
+					"link": "https://github.com/FunkinCrew/polymod/pull/389",
+					"change": "Bumped polymod to fix haxe's completion server slowness.",
+					"type": "fix"
+				},
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "Mod stuff is enabled now",
+					"type": "change"
+				},
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "MOD SUPPORT! IT'S HERE",
+					"type": "addition"
+				}
+			],
+			"date": "2026-04-09"
+		},
+		{
 			"version": "0.4.0",
 			"changes": [
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "This was supposed to add mod support n shit but it didn't work so that's fun.",
 					"type": "message"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "\"CHANGELOG.json\" has been moved to \"data/CHANGELOG.json\"",
 					"type": "change"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "The OTC (Object To Click) now has a little squish when it's clicked",
 					"type": "addition"
 				}
@@ -26,11 +59,13 @@
 			"changes": [
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Github issues can now be included in the changelog",
 					"type": "addition"
 				},
 				{
 					"issuenumber": "1",
+					"link": null,
 					"change": "Fixed \"highscore\" save field being null when you are playing for the first time",
 					"type": "fix"
 				}
@@ -42,21 +77,25 @@
 			"changes": [
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Mostly a codebase update for the save system NGL",
 					"type": "message"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "\"message\" changelog entry types now have an extra line break if there are actually changes n stuff",
 					"type": "change"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Score doesn't save between sessions now, only between switching from states",
 					"type": "change"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Highscores!",
 					"type": "addition"
 				}
@@ -68,11 +107,13 @@
 			"changes": [
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Saves",
 					"type": "addition"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Changelog State (C to toggle between it)",
 					"type": "addition"
 				}
@@ -84,21 +125,25 @@
 			"changes": [
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Score Text",
 					"type": "addition"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Score",
 					"type": "addition"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Object to click",
 					"type": "addition"
 				},
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Version Text",
 					"type": "addition"
 				}
@@ -110,6 +155,7 @@
 			"changes": [
 				{
 					"issuenumber": null,
+					"link": null,
 					"change": "Inital Release",
 					"type": "message"
 				}

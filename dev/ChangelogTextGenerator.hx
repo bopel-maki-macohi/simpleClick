@@ -1,5 +1,6 @@
 package dev;
 
+import haxe.Timer;
 import haxe.Json;
 import sys.io.File;
 import haxe.xml.Access;
@@ -15,6 +16,11 @@ class ChangelogTextGenerator
 	static var entrys:Access = null;
 
 	public static function main()
+	{
+		Timer.measure(f);
+	}
+
+	static function f()
 	{
 		changelogRawXML = sys.io.File.getContent('CHANGELOG.xml');
 
@@ -57,6 +63,7 @@ class ChangelogTextGenerator
 						t += '- ${change.type} : ${change.change}';
 
 						if (change.issuenumber != null) t += ' (https://github.com/bopel-maki-macohi/simpleClick/issues/${change.issuenumber})';
+						if (change.link != null) t += ' (${change.link})';
 
 						t += '\n';
 				}
@@ -91,14 +98,17 @@ class ChangelogTextGenerator
 				for (entr in entry.elements)
 				{
 					var issuenumber:String = null;
+					var link:String = null;
 
 					if (entr.has.resolve('issuenumber')) issuenumber = entr.att.issuenumber;
+					if (entr.has.resolve('link')) link = entr.att.link;
 
 					jentry.changes.push(
 						{
 							change: entr.innerData,
 							type: entr.name,
 							issuenumber: issuenumber,
+							link: link,
 						});
 				}
 

@@ -1,3 +1,10 @@
+# 0.5.0 - 2026-04-09
+
+- addition : SCRIPTING SUPPORT! IT'S HERE!!!!!!!!!!!!!!!
+- fix : Bumped polymod to fix haxe's completion server slowness. (https://github.com/FunkinCrew/polymod/pull/389)
+- change : Mod stuff is enabled now
+- addition : MOD SUPPORT! IT'S HERE
+
 # 0.4.0 - 2026-04-08
 
 This was supposed to add mod support n shit but it didn't work so that's fun.
@@ -34,4 +41,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-08 22:38:01 -->
+<!-- Generated: 2026-04-09 16:03:43 -->

@@ -7,7 +7,7 @@
 
 	<app title="Simple Click" file="simpleClick" />
 	<app company="Maki" />
-	<app version="0.4.0" />
+	<app version="0.5.0" />
 
 	<haxeflag name="--dce full" unless="debug" />
 
