@@ -231,7 +231,7 @@ class PolymodInterpEx extends Interp
 
     if (_scriptClassDescriptors.exists(name))
     {
-      Polymod.warn(SCRIPTED_CLASS_ALREADY_REGISTERED,
+      Polymod.warning(SCRIPTED_CLASS_ALREADY_REGISTERED,
         'Scripted class with fully qualified name "$name" has already been defined. Please change the class name or the package name to ensure uniqueness.',
         SCRIPT_RUNTIME);
       return;
