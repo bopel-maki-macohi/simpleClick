@@ -1,5 +1,6 @@
 package modding.events;
 
+import flixel.FlxSprite;
 import flixel.FlxState;
 
 class ScriptEvent
@@ -12,12 +13,17 @@ class ScriptEvent
 
 	public var eventCanceled(default, null):Bool;
 
+	public var toStringFields(default, null):Array<String> = ['type', 'cancelable'];
+
 	public function new(type:ScriptEventType, cancelable:Bool = false):Void
 	{
 		this.type = type;
 		this.cancelable = cancelable;
 		this.eventCanceled = false;
 		this.shouldPropagate = true;
+
+		if (!cancelable)
+			toStringFields.remove('cancelable');
 	}
 
 	public function cancelEvent():Void
@@ -30,7 +36,20 @@ class ScriptEvent
 		shouldPropagate = false;
 
 	public function toString():String
-		return 'type=$type | cancelable=$cancelable)';
+	{
+		var message:String = 'ScriptEvent(';
+
+		for (i => field in toStringFields)
+		{
+			message += '${field}=${Reflect.field(this, field)}';
+
+			if ((i + 1) < toStringFields.length) message += ' | ';
+		}
+
+		message += ')';
+
+		return message;
+	}
 }
 
 class UpdateScriptEvent extends ScriptEvent
@@ -40,11 +59,12 @@ class UpdateScriptEvent extends ScriptEvent
 	public function new(elapsed:Float):Void
 	{
 		super(UPDATE, false);
-		this.elapsed = elapsed;
-	}
 
-	public override function toString():String
-		return 'elapsed=$elapsed';
+		this.elapsed = elapsed;
+
+		toStringFields.remove('type');
+		toStringFields.push('elapsed');
+	}
 }
 
 class StateChangeScriptEvent extends ScriptEvent
@@ -55,8 +75,23 @@ class StateChangeScriptEvent extends ScriptEvent
 	{
 		super(type, cancelable);
 		this.targetState = targetState;
-	}
 
-	public override function toString():String
-		return 'type=' + type + ' | targetState=' + targetState;
+		toStringFields.insert(0, 'targetState');
+	}
+}
+
+class ObjectScriptEvent extends ScriptEvent
+{
+	public var object(default, null):FlxSprite;
+
+	public var increment:Int = 1;
+
+	public function new(object:FlxSprite, type:ScriptEventType, cancelable:Bool):Void
+	{
+		super(type, cancelable);
+		this.object = object;
+
+		toStringFields.insert(0, 'object');
+		toStringFields.insert(1, 'increment');
+	}
 }

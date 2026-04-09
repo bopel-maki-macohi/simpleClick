@@ -16,3 +16,9 @@ interface IStageChangingScriptedClass extends IScriptedClass
 	public function onStateChangeBegin(event:StateChangeScriptEvent):Void;
 	public function onStateChangeEnd(event:StateChangeScriptEvent):Void;
 }
+
+interface IObjectScriptedClass extends IScriptedClass
+{
+	public function onPreObjectClick(event:ScriptEvent):Void;
+	public function onPostObjectClick(event:ScriptEvent):Void;
+}

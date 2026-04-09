@@ -1,5 +1,6 @@
 package;
 
+import modding.events.ScriptEvent;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.math.FlxMath;
@@ -59,11 +60,19 @@ class PlayState extends BaseState
 		#end
 	}
 
-	function onClick()
+	public function onClick()
 	{
-		PlayState.score += 1;
+		var preEvent:ObjectScriptEvent = new ObjectScriptEvent(_object, OBJECT_CLICK_PRE, true);
+		dispatch(preEvent);
+		if (preEvent.eventCanceled) return;
+
+		PlayState.score += preEvent.increment;
 
 		if (PlayState.score > Save.instance.highscore.get()) Save.instance.highscore.set(PlayState.score);
+
+		var postEvent:ObjectScriptEvent = new ObjectScriptEvent(_object, OBJECT_CLICK_POST, true);
+		dispatch(postEvent);
+		if (postEvent.eventCanceled) return;
 
 		_object.scale.set(0.9, 0.9);
 

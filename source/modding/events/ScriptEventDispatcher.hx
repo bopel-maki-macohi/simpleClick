@@ -14,8 +14,6 @@ class ScriptEventDispatcher
 		// If one target says to stop propagation, stop.
 		if (!event.shouldPropagate) return;
 
-		target.onScriptEvent(event);
-
 		// IScriptedClass
 		switch (event.type)
 		{
@@ -53,6 +51,30 @@ class ScriptEventDispatcher
 		{
 			// If the target doesn't support the event, stop trying to dispatch.
 			if ([ScriptEventType.STATE_CHANGE_BEGIN, ScriptEventType.STATE_CHANGE_END].contains(event.type)) return;
+		}
+
+		if (Std.isOfType(target, IObjectScriptedClass))
+		{
+			var newTarget:IObjectScriptedClass = cast(target, IObjectScriptedClass);
+
+			if (newTarget == null) return;
+
+			switch (event.type)
+			{
+				case OBJECT_CLICK_PRE:
+					newTarget.onPreObjectClick(cast event);
+					return;
+				case OBJECT_CLICK_POST:
+					newTarget.onPostObjectClick(cast event);
+					return;
+
+				default:
+			}
+		}
+		else
+		{
+			// If the target doesn't support the event, stop trying to dispatch.
+			if ([ScriptEventType.OBJECT_CLICK_PRE, ScriptEventType.OBJECT_CLICK_POST].contains(event.type)) return;
 		}
 
 		// If we reach this line, it means a script event was dispatched while not being properly handled.

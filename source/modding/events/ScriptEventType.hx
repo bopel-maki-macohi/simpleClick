@@ -10,6 +10,9 @@ enum abstract ScriptEventType(String) from String to String
   var STATE_CHANGE_BEGIN = 'STATE_CHANGE_BEGIN';
   var STATE_CHANGE_END = 'STATE_CHANGE_END';
 
+  var OBJECT_CLICK_PRE = 'OBJECT_CLICK_PRE';
+  var OBJECT_CLICK_POST = 'OBJECT_CLICK_POST';
+
   /**
    * Allow for comparing `ScriptEventType` to `String`.
    */
