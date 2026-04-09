@@ -6,6 +6,12 @@
 				{
 					"issuenumber": null,
 					"link": null,
+					"change": "Score Increment Popup",
+					"type": "addition"
+				},
+				{
+					"issuenumber": null,
+					"link": null,
 					"change": "Space in the Changelog State to reset the text position (SHIFT to go faster)",
 					"type": "addition"
 				},
