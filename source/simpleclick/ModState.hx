@@ -41,7 +41,7 @@ class ModState extends BaseState
 				else
 					Save.instance.enabledMods.get().push(mod);
 
-				PolymodHandler.forceReloadAssets();
+				reloadAssets();
 			}
 		}
 	}

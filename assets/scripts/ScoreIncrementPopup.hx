@@ -14,13 +14,16 @@ class ScoreIncrementPopup extends Module
 		super('score-increment-popup');
 	}
 
-	override function onPostObjectClick(event:ObjectScriptEvent)
+	override function onPostObjectClick(event:ObjectScriptEvent):ObjectScriptEvent
 	{
-		super.onPostObjectClick(event);
+		if (PlayState.instance == null) return event;
 
-		if (PlayState.instance == null) return;
+		event.increment = -event.increment;
+		event.cancel();
 
 		var popup:FlxOutlineText = new FlxOutlineText(0, 0, 0, '+ ${event.increment}', 32);
+
+		if (event.increment < 0) popup.text = '- ${Math.abs(event.increment)}';
 
 		popup.setFormat(null, 16, FlxColor.WHITE, 'center');
 		popup.screenCenter();
@@ -42,6 +45,8 @@ class ScoreIncrementPopup extends Module
 					popup.destroy();
 				}
 			});
+
+		return super.onPostObjectClick(event);
 	}
 
 	function scoreTextHighscore()

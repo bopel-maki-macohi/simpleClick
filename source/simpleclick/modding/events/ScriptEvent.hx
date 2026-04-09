@@ -13,7 +13,7 @@ class ScriptEvent
 
 	public var eventCanceled(default, null):Bool;
 
-	public var toStringFields(default, null):Array<String> = ['type', 'cancelable'];
+	public var toStringFields(default, null):Array<String> = ['type', 'cancelable', 'eventCanceled'];
 
 	public function new(type:ScriptEventType, cancelable:Bool = false):Void
 	{
@@ -23,7 +23,10 @@ class ScriptEvent
 		this.shouldPropagate = true;
 
 		if (!cancelable)
+		{
 			toStringFields.remove('cancelable');
+			toStringFields.remove('eventCanceled');
+		}
 	}
 
 	public function cancelEvent():Void

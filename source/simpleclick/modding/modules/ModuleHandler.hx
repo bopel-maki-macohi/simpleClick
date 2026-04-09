@@ -124,22 +124,15 @@ class ModuleHandler
 	 */
 	public static function clearModuleCache():Void
 	{
-		if (moduleCache != null)
-		{
-			var event = new ScriptEvent(DESTROY, false);
+		if (moduleCache == null) return;
 
-			// Note: Ignore stopPropagation()
-			for (key => value in moduleCache)
-			{
-				ScriptEventDispatcher.callEvent(value, event);
-			}
+		callEvent(new ScriptEvent(DESTROY, false));
 
-			moduleCache.clear();
-			modulePriorityOrder = [];
-		}
+		moduleCache.clear();
+		modulePriorityOrder = [];
 	}
 
-	public static function callEvent(event:ScriptEvent):Void
+	public static function callEvent(event:ScriptEvent):ScriptEvent
 	{
 		for (moduleId in modulePriorityOrder)
 		{
@@ -157,8 +150,12 @@ class ModuleHandler
 				}
 			}
 
-			ScriptEventDispatcher.callEvent(module, event);
+			if (event.type != UPDATE) trace('${module.moduleId}: ${event.type}');
+			
+			event = ScriptEventDispatcher.callEvent(module, event);
 		}
+
+		return event;
 	}
 
 	public static inline function callOnCreate():Void

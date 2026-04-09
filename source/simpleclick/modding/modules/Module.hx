@@ -52,15 +52,15 @@ class Module implements IStageChangingScriptedClass implements IObjectScriptedCl
 	public function toString():String
 		return '$moduleId';
 
-	public function onScriptEvent(event:ScriptEvent) {}
+	public function onScriptEvent(event:ScriptEvent) { return event; }
 
-	public function onCreate(event:ScriptEvent) {}
-	public function onDestroy(event:ScriptEvent) {}
-	public function onUpdate(event:UpdateScriptEvent) {}
+	public function onCreate(event:ScriptEvent) { return event; }
+	public function onDestroy(event:ScriptEvent) { return event; }
+	public function onUpdate(event:UpdateScriptEvent) { return event; }
 
-	public function onStateChangeBegin(event:StateChangeScriptEvent) {}
-	public function onStateChangeEnd(event:StateChangeScriptEvent) {}
+	public function onStateChangeBegin(event:StateChangeScriptEvent) { return event; }
+	public function onStateChangeEnd(event:StateChangeScriptEvent) { return event; }
 
-	public function onPreObjectClick(event:ObjectScriptEvent) {}
-	public function onPostObjectClick(event:ObjectScriptEvent) {}
+	public function onPreObjectClick(event:ObjectScriptEvent) { return event; }
+	public function onPostObjectClick(event:ObjectScriptEvent) { return event; }
 }

@@ -11,10 +11,10 @@ class TestModule extends Module
 
 	override function onScriptEvent(event:ScriptEvent)
 	{
-		super.onScriptEvent(event);
-
-		if (event.type == ScriptEventType.UPDATE) return;
+		if (event.type == ScriptEventType.UPDATE) return event;
 
 		// trace(event.toString());
+
+		return super.onScriptEvent(event);
 	}
 }

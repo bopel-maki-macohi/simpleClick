@@ -72,15 +72,14 @@ class PlayState extends BaseState
 
 	public function onClick()
 	{
-		var preEvent:ObjectScriptEvent = new ObjectScriptEvent(_object, 1, false, OBJECT_CLICK_PRE, true);
-		dispatch(preEvent);
-
+		var preEvent:ObjectScriptEvent = cast dispatch(new ObjectScriptEvent(_object, 1, false, OBJECT_CLICK_PRE, true));
 		if (preEvent.eventCanceled) return;
+
+		trace(preEvent);
 
 		var scoreIncrement:Int = preEvent.increment;
 
-		var postEvent:ObjectScriptEvent = new ObjectScriptEvent(_object, scoreIncrement, incrementScore(scoreIncrement), OBJECT_CLICK_POST, true);
-		dispatch(postEvent);
+		var postEvent:ObjectScriptEvent = cast dispatch(new ObjectScriptEvent(_object, scoreIncrement, incrementScore(scoreIncrement), OBJECT_CLICK_POST, true));
 
 		if (!postEvent.eventCanceled)
 		{
@@ -97,7 +96,7 @@ class PlayState extends BaseState
 	public function incrementScore(scoreIncrement:Int):Bool
 	{
 		PlayState.score += scoreIncrement;
-		
+
 		if (PlayState.score > Save.instance.highscore.get())
 		{
 			Save.instance.highscore.set(PlayState.score);

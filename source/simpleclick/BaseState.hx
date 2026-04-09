@@ -8,8 +8,8 @@ import flixel.FlxState;
 
 class BaseState extends FlxState
 {
-	public function dispatch(event:ScriptEvent)
-		ModuleHandler.callEvent(event);
+	public function dispatch(event:ScriptEvent):ScriptEvent
+		return ModuleHandler.callEvent(event);
 
 	public function reloadAssets()
 	{
