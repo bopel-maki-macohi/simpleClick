@@ -16,7 +16,7 @@
 	<haxedef name="POLYMOD_SCRIPT_EXT" value=".hxs" />
 	<haxedef name="POLYMOD_USE_NAMESPACE" value="true" />
 
-	<haxedef name="POLYMOD_ROOT_PATH" value="scripting/" />
+	<haxedef name="POLYMOD_ROOT_PATH" value="scripts/" />
 	<haxedef name="POLYMOD_SCRIPT_LIBRARY" value="scripts" />
 
 	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="meta.json" />
@@ -36,7 +36,7 @@
 	<source path="source" />
 
 	<assets path="assets" />
-	<assets path="assets/scripting" library="scripts" />
+	<assets path="assets/scripts" library="scripts" />
 
 	<assets path="CHANGELOG.xml" />
 	<assets path="mods" if="debug" />
