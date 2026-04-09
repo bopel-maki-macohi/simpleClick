@@ -8,4 +8,7 @@ class Module
 	{
 		this.id = id;
 	}
+
+	public function toString():String
+		return '$id';
 }
