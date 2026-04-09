@@ -50,9 +50,9 @@ class ChangelogState extends BaseState
 
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new PlayState());
 
-		var shiftThing = 1;
+		var shiftThing = 5;
 
-		if (FlxG.keys.pressed.SHIFT) shiftThing *= 10;
+		if (FlxG.keys.pressed.SHIFT) shiftThing = 10;
 
 		if (_text.height > FlxG.height)
 		{
