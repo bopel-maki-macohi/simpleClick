@@ -1,7 +1,7 @@
 import scripting.events.ScriptEvent;
 import scripting.modules.Module;
 
-class ExampleModule extends Module
+class TestModule extends Module
 {
 	override public function new()
 	{
