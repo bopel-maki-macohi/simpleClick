@@ -96,7 +96,7 @@ class ModCore
 				skipDependencyErrors: true,
 
 				// Parse hxc (+ hx) files and register the scripted classes in them.
-				// useScriptedClasses: true,
+				useScriptedClasses: true,
 				loadScriptsAsync: #if html5 true #else false #end,
 			});
 
