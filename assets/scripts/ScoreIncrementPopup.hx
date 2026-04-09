@@ -20,9 +20,10 @@ class ScoreIncrementPopup extends Module
 
 		var popup:FlxOutlineText = new FlxOutlineText(0, 0, 0, '+ ${event.increment}', 32);
 
-		popup.setFormat(null, 16, FlxColor.LIME, 'center');
-		popup.setBorderStyle(popup.borderStyle, FlxColor.WHITE, 4);
+		popup.setFormat(null, 16, FlxColor.WHITE, 'center');
+		// popup.setBorderStyle(popup.borderStyle, FlxColor.WHITE, 4);
 		popup.screenCenter();
+		popup.y = PlayState.instance._scoreText.y + popup.height;
 
 		PlayState.instance.add(popup);
 
