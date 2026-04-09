@@ -14,7 +14,7 @@ class Main extends Sprite
 		Save.instance.init();
 
 		#if FEATURE_MODDING
-		PolymodHandler.loadEnabledMods();
+		PolymodHandler.forceReloadAssets();
 		#end
 
 		addChild(new FlxGame(0, 0, PlayState));

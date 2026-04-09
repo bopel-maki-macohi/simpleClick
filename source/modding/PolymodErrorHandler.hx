@@ -10,6 +10,7 @@ class PolymodErrorHandler
 		var idontcare = [FRAMEWORK_INIT, MOD_MISSING_ICON,];
 
 		if (idontcare.contains(e.code)) return;
+		if (e.message.startsWith('Registering scripted class ')) return;
 
 		trace(Std.string(e.code ?? 'DEBUG').toUpperCase() + ' : ' + e.message);
 

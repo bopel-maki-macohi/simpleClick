@@ -427,6 +427,7 @@ class PolymodHandler
 		ModuleHandler.clearModuleCache();
 		Polymod.clearScripts();
 
+		PolymodHandler.getAllMods();
 		PolymodHandler.loadEnabledMods();
 
 		ModuleHandler.loadModuleCache();
