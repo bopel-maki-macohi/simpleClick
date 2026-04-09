@@ -6,6 +6,18 @@
 				{
 					"issuenumber": null,
 					"link": null,
+					"change": "Space in the Changelog State to reset the text position",
+					"type": "addition"
+				},
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "You can now scroll in the Changelog State if the text is too big (which it is now)",
+					"type": "addition"
+				},
+				{
+					"issuenumber": null,
+					"link": null,
 					"change": "SCRIPTING SUPPORT! IT'S HERE!!!!!!!!!!!!!!!",
 					"type": "addition"
 				},

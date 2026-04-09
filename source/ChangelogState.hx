@@ -1,3 +1,5 @@
+import lime.utils.Assets;
+import haxe.Json;
 import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.FlxState;
@@ -30,7 +32,7 @@ class ChangelogState extends BaseState
 
 					default:
 						_text.text += '- ${change.type} : ${change.change}';
-						
+
 						// TODO: links to send you to the issue
 						if (change.issuenumber != null) _text.text += ' (Issue #${change.issuenumber})';
 
@@ -47,5 +49,17 @@ class ChangelogState extends BaseState
 		super.update(elapsed);
 
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new PlayState());
+
+		var shiftThing = 1;
+
+		if (FlxG.keys.pressed.SHIFT) shiftThing *= 10;
+
+		if (_text.height > FlxG.height)
+		{
+			if (FlxG.keys.anyPressed([W, UP])) _text.y -= shiftThing;
+			if (FlxG.keys.anyPressed([S, DOWN])) _text.y += shiftThing;
+		}
+
+		if (FlxG.keys.justPressed.SPACE) _text.y = 10;
 	}
 }

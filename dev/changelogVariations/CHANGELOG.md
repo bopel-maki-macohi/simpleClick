@@ -1,5 +1,7 @@
 # 0.5.0 - 2026-04-09
 
+- addition : Space in the Changelog State to reset the text position
+- addition : You can now scroll in the Changelog State if the text is too big (which it is now)
 - addition : SCRIPTING SUPPORT! IT'S HERE!!!!!!!!!!!!!!!
 - fix : Bumped polymod to fix haxe's completion server slowness. (https://github.com/FunkinCrew/polymod/pull/389)
 - change : Mod stuff is enabled now
@@ -41,4 +43,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-09 16:03:43 -->
+<!-- Generated: 2026-04-09 16:14:18 -->

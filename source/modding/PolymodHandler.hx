@@ -97,6 +97,10 @@ class PolymodHandler
 
 	public static function loadModsByDir(dirs:Array<String>):Void
 	{
+		#if !FEATURE_MODDING
+		dirs = [];
+		trace('Forced to load zero mods.');
+		#else
 		if (dirs.length == 0)
 		{
 			trace('You attempted to load zero mods.');
@@ -105,6 +109,7 @@ class PolymodHandler
 		{
 			trace('Attempting to load ${dirs.length} mod(s)...');
 		}
+		#end
 
 		buildImports();
 
@@ -432,5 +437,7 @@ class PolymodHandler
 
 		ModuleHandler.loadModuleCache();
 		ModuleHandler.callOnCreate();
+
+		ChangelogState.changelog = haxe.Json.parse(lime.utils.Assets.getText('assets/data/CHANGELOG.json'));
 	}
 }
