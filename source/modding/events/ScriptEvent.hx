@@ -76,7 +76,7 @@ class StateChangeScriptEvent extends ScriptEvent
 		super(type, cancelable);
 		this.targetState = targetState;
 
-		toStringFields.insert(0, 'targetState');
+		toStringFields.insert(1, 'targetState');
 	}
 }
 
@@ -91,7 +91,7 @@ class ObjectScriptEvent extends ScriptEvent
 		super(type, cancelable);
 		this.object = object;
 
-		toStringFields.insert(0, 'object');
-		toStringFields.insert(1, 'increment');
+		toStringFields.insert(1, 'object');
+		toStringFields.insert(2, 'increment');
 	}
 }
