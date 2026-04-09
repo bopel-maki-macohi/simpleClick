@@ -14,9 +14,8 @@ class ModCore
 	{
 		ModuleHandler.clear();
 
-		// Polymod.clearCache();
-		// Polymod.clearScripts();
-		// Polymod.reload();
+		Polymod.clearCache();
+		Polymod.clearScripts();
 
 		loadEnabledMods();
 
@@ -24,7 +23,7 @@ class ModCore
 		// FlxG.resetState();
 	}
 
-	public static var modRoot:String = './mods/';
+	public static var modRoot:String = 'mods';
 
 	public static var apiVersionRule(get, never):VersionRule;
 
@@ -67,7 +66,7 @@ class ModCore
 
 		// trace('apiVersionRule: $apiVersionRule');
 
-		// buildImports here
+		buildImports();
 
 		var loadedModList:Array<ModMetadata> = Polymod.init(
 			{
@@ -142,11 +141,11 @@ class ModCore
 
 	static function onError(e:PolymodError)
 	{
-		var idontcare = [FRAMEWORK_INIT, MOD_MISSING_ICON, MOD_LOAD_START, MOD_LOAD_DONE,];
+		var idontcare = [FRAMEWORK_INIT, MOD_MISSING_ICON,];
 
-		if (e.code == FRAMEWORK_INIT || e.code == MOD_MISSING_ICON) return;
+		if (idontcare.contains(e.code)) return;
 
-		trace(Std.string(e.code).toUpperCase() + ' : ' + e.message);
+		trace(Std.string(e.code ?? 'DEBUG').toUpperCase() + ' : ' + e.message);
 
 		if (e.severity == ERROR || e.code == MOD_DEPENDENCY_UNMET) FlxG.stage.application.window.alert(e.message);
 	}
@@ -177,5 +176,103 @@ class ModCore
 		// You can specify the format of a specific file, with file extension.
 		// output.addFile("data/introText.txt", TextFileFormat.LINES)
 		return output;
+	}
+
+	static function buildImports()
+	{
+		// Add default imports for common classes.
+
+		// Add import aliases for certain classes.
+		// NOTE: Scripted classes are automatically aliased to their parent class.
+		Polymod.addImportAlias('flixel.math.FlxPoint', flixel.math.FlxPoint.FlxBasePoint);
+
+		// Add blacklisting for prohibited classes and packages.
+
+		// `Sys`
+		// Sys.command() can run malicious processes
+		Polymod.blacklistImport('Sys');
+
+		// `Reflect`
+		// Reflect.callMethod() can access blacklisted packages
+		Polymod.blacklistImport('Reflect');
+
+		// `Type`
+		// Type.createInstance(Type.resolveClass()) can access blacklisted packages
+		Polymod.blacklistImport('Type');
+
+		// `cpp.Lib`
+		// Lib.load() can load malicious DLLs
+		Polymod.blacklistImport('cpp.Lib');
+
+		// `polymod.*`
+		// You can probably unblacklist a module
+		for (cls in ClassMacro.listClassesInPackage('polymod'))
+		{
+			if (cls == null) continue;
+			var className:String = Type.getClassName(cls);
+			Polymod.blacklistImport(className);
+		}
+
+		// `sys.*`
+		for (cls in ClassMacro.listClassesInPackage('sys'))
+		{
+			if (cls == null) continue;
+			var className:String = Type.getClassName(cls);
+			Polymod.blacklistImport(className);
+		}
+
+		// `macros.*`
+		for (cls in ClassMacro.listClassesInPackage('macros'))
+		{
+			if (cls == null) continue;
+			var className:String = Type.getClassName(cls);
+			Polymod.blacklistImport(className);
+		}
+
+		// `openfl.filesystem.FileStream`, `openfl.net.Socket`, `openfl.utils.ByteArray.ByteArrayData`
+		// Returns `Unseralizer.run` if encoded in HXSF format, though it does have to be seralized correctly for the exploit to work.
+		#if !html5 Polymod.blacklistInstanceFields(openfl.filesystem.FileStream, ['readObject']); #end
+		Polymod.blacklistInstanceFields(openfl.net.Socket, ['readObject']);
+		Polymod.blacklistInstanceFields(openfl.utils.ByteArray.ByteArrayData, ['readObject']);
+
+		// `lime.system.CFFI`
+		// Can load and execute compiled binaries.
+		Polymod.blacklistImport('lime.system.CFFI');
+
+		// `lime.system.JNI`
+		// Can load and execute compiled binaries.
+		Polymod.blacklistImport('lime.system.JNI');
+
+		// `lime.system.System`
+		// System.load() can load malicious DLLs
+		Polymod.blacklistImport('lime.system.System');
+
+		// `lime.utils.Assets`
+		// Literally just has a private `resolveClass` function for some reason?
+		Polymod.blacklistImport('lime.utils.Assets');
+		Polymod.blacklistImport('openfl.utils.Assets');
+		Polymod.blacklistImport('openfl.Lib');
+		Polymod.blacklistImport('openfl.system.ApplicationDomain');
+		Polymod.blacklistImport('openfl.net.SharedObject');
+
+		// `openfl.desktop.NativeProcess`
+		// Can load native processes on the host operating system.
+		Polymod.blacklistImport('openfl.desktop.NativeProcess');
+
+		// `flixel.util.FlxSave`
+		// resolveFlixelClasses() can access blacklisted packages
+		Polymod.blacklistStaticFields(flixel.util.FlxSave, ['resolveFlixelClasses']);
+		// Disallow direct manipulation of save data.
+		// Polymod.blacklistStaticFields(flixel.FlxG, ['save']);
+
+		// `haxe.Unserializer`
+		// Just to be double-sure, lets blacklist some fields of the Unserializer to make it harder to use if you DO get one.
+		Polymod.blacklistStaticFields(haxe.Unserializer, ['run']);
+		Polymod.blacklistInstanceFields(haxe.Unserializer, ['unserialize']);
+
+		Polymod.blacklistImport('haxe.Unserializer');
+
+		Polymod.addImportAlias('lime.utils.Assets', AssetsSandboxed);
+		Polymod.addImportAlias('openfl.utils.Assets', AssetsSandboxed);
 	}
 }
