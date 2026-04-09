@@ -1,3 +1,4 @@
+import scripting.ModuleHandler;
 import polymod.hscript.HScriptable.HScriptParams;
 import macros.ClassMacro;
 import polymod.format.ParseRules;
@@ -13,10 +14,14 @@ class ModCore
 {
 	public static function reload()
 	{
+		ModuleHandler.clear();
+
 		Polymod.clearCache();
 		Polymod.clearScripts();
 
 		loadEnabledMods();
+
+		ModuleHandler.load();
 
 		// FlxG.resetState();
 	}
