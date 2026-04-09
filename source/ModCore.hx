@@ -1,6 +1,6 @@
+import polymod.hscript.HScriptable.HScriptParams;
 import macros.ClassMacro;
 import polymod.format.ParseRules;
-import scripting.modules.ModuleHandler;
 import flixel.FlxG;
 import thx.semver.Version;
 import thx.semver.VersionRule;
@@ -13,14 +13,11 @@ class ModCore
 {
 	public static function reload()
 	{
-		ModuleHandler.clear();
-
 		Polymod.clearCache();
 		Polymod.clearScripts();
 
 		loadEnabledMods();
 
-		ModuleHandler.load();
 		// FlxG.resetState();
 	}
 
@@ -68,6 +65,10 @@ class ModCore
 		// trace('apiVersionRule: $apiVersionRule');
 
 		buildImports();
+
+		HScriptParams.OPTIONAL_DEFAULT = true;
+		HScriptParams.CANCELLABLE_DEFAULT = true;
+		HScriptParams.RUN_BEFORE_DEFAULT = true;
 
 		var loadedModList:Array<ModMetadata> = Polymod.init(
 			{

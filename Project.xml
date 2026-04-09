@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project xmlns="http://lime.openfl.org/project/1.0.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://lime.openfl.org/project/1.0.4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://lime.openfl.org/project/1.0.4 http://lime.openfl.org/xsd/project-1.0.4.xsd">
 
 	<!-- _________________________________ Custom _______________________________ -->
@@ -12,28 +13,31 @@
 
 	<define name="hscriptPos" />
 
-	<haxedef name="POLYMOD_ROOT_PATH" value="scripts/"/>
-	<haxedef name="POLYMOD_SCRIPT_LIBRARY" value="scripts"/>
+	<haxedef name="POLYMOD_SCRIPT_EXT" value=".hx" />
+	<haxedef name="POLYMOD_USE_NAMESPACE" value="true" />
 
-	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="meta.json"/>
-	<haxedef name="POLYMOD_MOD_ICON_FILE" value="icon.png"/>
-	
-	<haxedef name="POLYMOD_DEBUG" if="debug"/>
+	<haxedef name="POLYMOD_ROOT_PATH" value="scripting/" />
+	<haxedef name="POLYMOD_SCRIPT_LIBRARY" value="scripts" />
+
+	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="meta.json" />
+	<haxedef name="POLYMOD_MOD_ICON_FILE" value="icon.png" />
+
+	<haxedef name="POLYMOD_DEBUG" if="debug" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
 	<set name="BUILD_DIR" value="export/release" />
-	<set name="BUILD_DIR" value="export/debug" if="debug"/>
+	<set name="BUILD_DIR" value="export/debug" if="debug" />
 
 	<library name="scripts" />
 
 	<source path="source" />
-	
+
 	<assets path="assets" />
-	<assets path="assets/scripts" library="scripts"/>
+	<assets path="assets/scripting" library="scripts" />
 
 	<assets path="CHANGELOG.xml" />
-	<assets path="mods" if="debug"/>
+	<assets path="mods" if="debug" />
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -58,19 +62,27 @@
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
 	<haxedef name="FLX_NO_HEALTH" />
-	<!--<haxedef name="FLX_RECORD" />-->
-	<!--<haxedef name="FLX_NO_MOUSE_ADVANCED" />-->
-	<!--<haxedef name="FLX_NO_NATIVE_CURSOR" />-->
+	<!--<haxedef
+	name="FLX_RECORD" />-->
+	<!--<haxedef
+	name="FLX_NO_MOUSE_ADVANCED" />-->
+	<!--<haxedef
+	name="FLX_NO_NATIVE_CURSOR" />-->
 
-	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
+	<!--Optimise
+	inputs, be careful you will get null errors if you don't use conditionals in your game-->
 	<haxedef name="FLX_NO_MOUSE" if="mobile" />
 	<haxedef name="FLX_NO_KEYBOARD" if="mobile" />
 	<haxedef name="FLX_NO_TOUCH" if="desktop" />
-	<!--<haxedef name="FLX_NO_GAMEPAD" />-->
+	<!--<haxedef
+	name="FLX_NO_GAMEPAD" />-->
 
-	<!--<haxedef name="FLX_NO_SOUND_TRAY" />-->
-	<!--<haxedef name="FLX_NO_SOUND_SYSTEM" />-->
-	<!--<haxedef name="FLX_NO_FOCUS_LOST_SCREEN" />-->
+	<!--<haxedef
+	name="FLX_NO_SOUND_TRAY" />-->
+	<!--<haxedef
+	name="FLX_NO_SOUND_SYSTEM" />-->
+	<!--<haxedef
+	name="FLX_NO_FOCUS_LOST_SCREEN" />-->
 	<haxedef name="FLX_NO_DEBUG" unless="debug" />
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 
