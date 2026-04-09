@@ -86,13 +86,18 @@ class ObjectScriptEvent extends ScriptEvent
 
 	public var increment:Int = 1;
 
-	public function new(object:FlxSprite, increment:Int, type:ScriptEventType, cancelable:Bool):Void
+	public var highscore(default, null):Bool = false;
+
+	public function new(object:FlxSprite, increment:Int, highscore:Bool, type:ScriptEventType, cancelable:Bool):Void
 	{
 		super(type, cancelable);
+
 		this.object = object;
 		this.increment = increment;
+		this.highscore = highscore;
 
 		toStringFields.insert(1, 'object');
 		toStringFields.insert(2, 'increment');
+		toStringFields.insert(3, 'highscore');
 	}
 }
