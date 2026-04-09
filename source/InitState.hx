@@ -1,8 +1,9 @@
 import flixel.FlxState;
-import plugins.ReloadAssetsDebugPlugin;
+import simpleclick.plugins.ReloadAssetsDebugPlugin;
 import flixel.FlxG;
-import modding.modules.ModuleHandler;
-import modding.PolymodHandler;
+import simpleclick.modding.modules.ModuleHandler;
+import simpleclick.modding.PolymodHandler;
+import simpleclick.*;
 
 class InitState extends FlxState
 {

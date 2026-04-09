@@ -1,4 +1,4 @@
-import modding.modules.Module;
+import simpleclick.modding.modules.Module;
 
 class TestDosModule extends Module
 {

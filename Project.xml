@@ -9,8 +9,6 @@
 	<app company="Maki" />
 	<app version="0.5.0" />
 
-	<haxeflag name="--dce full" unless="debug" />
-
 	<define name="hscriptPos" />
 
 	<haxedef name="POLYMOD_SCRIPT_EXT" value=".hxs" />
@@ -25,6 +23,20 @@
 	<haxedef name="POLYMOD_DEBUG" if="debug" />
 
 	<define name="FEATURE_MODDING" />
+
+	<haxeflag name="--dce full" unless="debug || FEATURE_MODDING" />
+	<haxeflag name="--dce no" if="FEATURE_MODDING" />
+
+		<!--
+		Ensure additional class packages are available at runtime (some only really used by scripts).
+		Ignore packages we can't include.
+	-->
+
+	<haxeflag name="--macro" value="include('simpleclick')" />
+
+	<haxeflag name="--macro" value="include('flixel', true, [ 'flixel.addons.editors.spine.*', 'flixel.addons.nape.*', 'flixel.system.macros.*', 'flixel.addons.tile.FlxRayCastTilemap' ])" />
+	<haxeflag name="--macro" value="include('lime', true, ['lime.tools.*', 'lime._internal.*'])" />
+	<haxeflag name="--macro" value="include('openfl')" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 

@@ -1,6 +1,6 @@
-import modding.events.ScriptEventType;
-import modding.events.ScriptEvent;
-import modding.modules.Module;
+import simpleclick.modding.events.ScriptEventType;
+import simpleclick.modding.events.ScriptEvent;
+import simpleclick.modding.modules.Module;
 
 class TestModule extends Module
 {
@@ -15,6 +15,6 @@ class TestModule extends Module
 
 		if (event.type == ScriptEventType.UPDATE) return;
 
-		trace(event.toString());
+		// trace(event.toString());
 	}
 }

@@ -64,12 +64,12 @@ Now that you have a metadata file, you can start the game!
 Pro tip, if you run the game from the command line, you can see lots of useful debug messages, like these messages that indicate your mod has loaded!
 
 ```shell
-source/modding/PolymodHandler.hx:106: Attempting to load 1 mod(s)...
+source/simpleclick/modding/PolymodHandler.hx:106: Attempting to load 1 mod(s)...
 ...
-source/modding/PolymodErrorHandler.hx:21: MOD_LOAD_START : Preparing to load mod mods/introMod
-source/modding/PolymodErrorHandler.hx:21: MOD_LOAD_DONE : Done loading mod mods/introMod
+source/simpleclick/modding/PolymodErrorHandler.hx:21: MOD_LOAD_START : Preparing to load mod mods/introMod
+source/simpleclick/modding/PolymodErrorHandler.hx:21: MOD_LOAD_DONE : Done loading mod mods/introMod
 ...
-source/modding/PolymodHandler.hx:159: Mod loading complete. We loaded 1 / 1 mods.
+source/simpleclick/modding/PolymodHandler.hx:159: Mod loading complete. We loaded 1 / 1 mods.
 ```
 
 Neat! But right now, your mod doesn't do anything.
