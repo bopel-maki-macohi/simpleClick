@@ -1,3 +1,4 @@
+import macros.ClassMacro;
 import polymod.format.ParseRules;
 import scripting.modules.ModuleHandler;
 import flixel.FlxG;

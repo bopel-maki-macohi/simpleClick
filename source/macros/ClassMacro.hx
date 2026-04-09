@@ -34,7 +34,7 @@ class ClassMacro
 
 		classListsToGenerate.push(request);
 
-		return macro CompiledClassList.get($v{request});
+		return macro macros.CompiledClassList.get($v{request});
 	}
 
 	/**
@@ -53,7 +53,7 @@ class ClassMacro
 			Context.onGenerate(onGenerate);
 		}
 
-		var targetClass:ClassType = MacroUtil.getClassTypeFromExpr(targetClassExpr);
+		var targetClass:ClassType = macros.MacroUtil.getClassTypeFromExpr(targetClassExpr);
 		var targetClassPath:String = null;
 		if (targetClass != null) targetClassPath = targetClass.pack.join('.') + '.' + targetClass.name;
 
@@ -61,7 +61,7 @@ class ClassMacro
 
 		classListsToGenerate.push(request);
 
-		return macro CompiledClassList.getTyped($v{request}, ${targetClassExpr});
+		return macro macros.CompiledClassList.getTyped($v{request}, ${targetClassExpr});
 	}
 
 	#if macro
@@ -122,7 +122,7 @@ class ClassMacro
 	 */
 	static function compileClassLists()
 	{
-		var compiledClassList:ClassType = MacroUtil.getClassType("CompiledClassList");
+		var compiledClassList:ClassType = macros.MacroUtil.getClassType("macros.CompiledClassList");
 
 		if (compiledClassList == null) throw "Could not find CompiledClassList class.";
 
@@ -175,13 +175,13 @@ class ClassMacro
 			case 'extend':
 				var targetClassName:String = splitRequest[1];
 
-				var targetClassType:ClassType = MacroUtil.getClassType(targetClassName);
+				var targetClassType:ClassType = macros.MacroUtil.getClassType(targetClassName);
 
-				if (MacroUtil.implementsInterface(classType, targetClassType))
+				if (macros.MacroUtil.implementsInterface(classType, targetClassType))
 				{
 					return true;
 				}
-				else if (MacroUtil.isSubclassOf(classType, targetClassType))
+				else if (macros.MacroUtil.isSubclassOf(classType, targetClassType))
 				{
 					return true;
 				}

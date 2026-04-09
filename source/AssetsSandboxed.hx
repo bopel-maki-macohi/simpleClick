@@ -1,3 +1,4 @@
+import lime.app.Future;
 import lime.utils.Assets;
 
 class AssetsSandboxed extends Assets
