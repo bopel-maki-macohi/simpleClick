@@ -14,10 +14,6 @@ class ScriptEventDispatcher
 		// If one target says to stop propagation, stop.
 		if (!event.shouldPropagate) return;
 
-		#if FEATURE_MODDING_SEDTRACE
-		trace('Calling ${event.type} on ${target}');
-		#end
-
 		target.onScriptEvent(event);
 
 		// IScriptedClass

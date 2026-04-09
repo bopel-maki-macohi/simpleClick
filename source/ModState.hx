@@ -4,7 +4,7 @@ import polymod.Polymod.ModMetadata;
 import flixel.text.FlxText;
 import flixel.FlxState;
 
-class ModState extends FlxState
+class ModState extends BaseState
 {
 	public static var currentSelection:Int = 0;
 

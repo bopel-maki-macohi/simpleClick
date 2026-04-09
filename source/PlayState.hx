@@ -11,7 +11,7 @@ import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.FlxState;
 
-class PlayState extends FlxState
+class PlayState extends BaseState
 {
 	public var _versionText:FlxText;
 

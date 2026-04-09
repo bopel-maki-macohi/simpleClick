@@ -2,7 +2,7 @@ import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.FlxState;
 
-class ChangelogState extends FlxState
+class ChangelogState extends BaseState
 {
 	public static var changelog:ChangelogData = null;
 
