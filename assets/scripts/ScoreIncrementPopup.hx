@@ -23,13 +23,13 @@ class ScoreIncrementPopup extends Module
 		popup.setFormat(null, 16, FlxColor.WHITE, 'center');
 		// popup.setBorderStyle(popup.borderStyle, FlxColor.WHITE, 4);
 		popup.screenCenter();
-		popup.y = PlayState.instance._scoreText.y + popup.height;
+		popup.y = (PlayState.instance._scoreText.y + PlayState.instance._scoreText.height) + (popup.height * 0.25);
 
 		PlayState.instance.add(popup);
 
 		FlxTween.tween(popup, {alpha: 0, y: -popup.height * 4}, 1,
 			{
-				ease: FlxEase.sineInOut,
+				ease: FlxEase.backInOut,
 				onComplete: t -> {
 					PlayState.instance.remove(popup);
 					popup.destroy();
