@@ -1,5 +1,7 @@
 package;
 
+import plugins.ReloadAssetsDebugPlugin;
+import flixel.FlxG;
 import modding.modules.ModuleHandler;
 import modding.PolymodHandler;
 import flixel.FlxGame;
@@ -19,6 +21,8 @@ class Main extends Sprite
 		#if FEATURE_MODDING
 		PolymodHandler.forceReloadAssets();
 		#end
+
+		ReloadAssetsDebugPlugin.initialize();
 
 		addChild(new FlxGame(0, 0, PlayState));
 	}
