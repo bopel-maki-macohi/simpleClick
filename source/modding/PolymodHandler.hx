@@ -169,7 +169,7 @@ class PolymodHandler
 			loadedModIds.push(mod.id);
 		}
 
-		#if debug
+		#if FEATURE_MODDING_MODFILELISTS
 		var fileList:Array<String> = Polymod.listModFiles(PolymodAssetType.IMAGE);
 		trace('Installed mods have added/replaced ${fileList.length} images.');
 		for (item in fileList)
