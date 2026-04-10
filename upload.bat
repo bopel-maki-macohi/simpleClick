@@ -1,10 +1,10 @@
 @echo off
 
 echo BUILDING: HTML5
-lime build html5 -clean --times
+lime build htmls --times
 
 echo BUILDING: WINDOWS
-lime build windows -clean --times
+lime build windows --times
 
 echo UPLOADING: HTML5
 butler push ./export/release/html5/bin bopel-maki-macohi/simple-click:html5 --userversion-file version.txt
