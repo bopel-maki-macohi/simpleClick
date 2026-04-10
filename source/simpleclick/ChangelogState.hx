@@ -58,8 +58,8 @@ class ChangelogState extends BaseState
 
 		if (_text.height > FlxG.height)
 		{
-			if (FlxG.keys.anyPressed([W, UP])) _text.y -= shiftThing;
-			if (FlxG.keys.anyPressed([S, DOWN])) _text.y += shiftThing;
+			if (FlxG.keys.anyPressed([W, UP])) _text.y += shiftThing;
+			if (FlxG.keys.anyPressed([S, DOWN])) _text.y -= shiftThing;
 		}
 
 		if (FlxG.keys.justPressed.SPACE) _text.y = 10;
