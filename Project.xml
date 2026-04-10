@@ -7,7 +7,7 @@
 
 	<app title="Simple Click" file="simpleClick" />
 	<app company="Maki" />
-	<app version="0.5.2" />
+	<app version="0.6.0" />
 
 	<define name="hscriptPos" />
 
