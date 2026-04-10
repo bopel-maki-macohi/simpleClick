@@ -25,3 +25,7 @@ I just REALLY wanted to make something...
     - HTML5: Compiles without any extra setup
 
 Now do `lime test <ur platform>` and you are good.
+
+## Modding
+
+[Go here](docs/modding/README.md)

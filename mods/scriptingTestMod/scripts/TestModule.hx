@@ -13,7 +13,7 @@ class TestModule extends Module
 	{
 		if (event.type == ScriptEventType.UPDATE) return event;
 
-		// trace(event.toString());
+		trace(event.toString());
 
 		return super.onScriptEvent(event);
 	}
