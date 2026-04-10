@@ -1,6 +1,18 @@
 {
 	"entrys": [
 		{
+			"version": "0.7.0",
+			"changes": [
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "App Icon",
+					"type": "addition"
+				}
+			],
+			"date": "2026-04-10"
+		},
+		{
 			"version": "0.6.0",
 			"changes": [
 				{
