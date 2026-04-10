@@ -4,6 +4,10 @@
 <!-- haxe -m dev.ChangelogTextGenerator - -interp -->
 
 <entrys>
+    <entry version="0.5.1" date="2026-04-09">
+        <fix>Fixed crash when trying to load mods</fix>
+    </entry>
+
     <entry version="0.5.0" date="2026-04-09">
         <addition>Score Increment Popup</addition>
         <addition>Space in the Changelog State to reset the text position (SHIFT to go faster)</addition>

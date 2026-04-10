@@ -7,7 +7,7 @@
 
 	<app title="Simple Click" file="simpleClick" />
 	<app company="Maki" />
-	<app version="0.5.0" />
+	<app version="0.5.1" />
 
 	<define name="hscriptPos" />
 
@@ -51,7 +51,8 @@
 	<assets path="assets/scripts" library="scripts" />
 
 	<assets path="CHANGELOG.xml" />
-	<assets path="mods" if="debug" />
+	<assets path="mods" />
+	<assets path="debug_mods" rename="mods" if="debug"/>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
