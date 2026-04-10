@@ -4,6 +4,11 @@
 <!-- haxe -m dev.ChangelogTextGenerator - -interp -->
 
 <entrys>
+    <entry version="0.6.0" date="2026-04-10">
+        <removal>Script Support</removal>
+        <removal>Mod Support</removal>
+    </entry>
+
     <entry version="0.5.2" date="2026-04-10">
         <fix>Fixed Score Increment Popup being negative</fix>
     </entry>

@@ -65,32 +65,21 @@ class PlayState extends BaseState
 
 		if (FlxG.mouse.justPressed && FlxG.mouse.overlaps(_object)) onClick();
 		if (FlxG.keys.justReleased.C) FlxG.switchState(() -> new ChangelogState());
-		#if FEATURE_MODDING
-		if (FlxG.keys.justReleased.M) FlxG.switchState(() -> new ModState());
-		#end
 	}
 
 	public function onClick()
 	{
-		var preEvent:ObjectScriptEvent = cast dispatch(new ObjectScriptEvent(_object, 1, false, OBJECT_CLICK_PRE, true));
-		if (preEvent.eventCanceled) return;
+		var scoreIncrement:Int = 1;
 
-		trace(preEvent);
+		incrementScore(scoreIncrement);
 
-		var scoreIncrement:Int = preEvent.increment;
+		_object.scale.set(0.9, 0.9);
 
-		var postEvent:ObjectScriptEvent = cast dispatch(new ObjectScriptEvent(_object, scoreIncrement, incrementScore(scoreIncrement), OBJECT_CLICK_POST, true));
-
-		if (!postEvent.eventCanceled)
-		{
-			_object.scale.set(0.9, 0.9);
-
-			FlxTween.cancelTweensOf(_object);
-			FlxTween.tween(_object, {'scale.x': 1, 'scale.y': 1}, .2,
-				{
-					ease: FlxEase.sineOut
-				});
-		}
+		FlxTween.cancelTweensOf(_object);
+		FlxTween.tween(_object, {'scale.x': 1, 'scale.y': 1}, .2,
+			{
+				ease: FlxEase.sineOut
+			});
 	}
 
 	public function incrementScore(scoreIncrement:Int):Bool

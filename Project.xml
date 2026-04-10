@@ -9,34 +9,7 @@
 	<app company="Maki" />
 	<app version="0.6.0" />
 
-	<define name="hscriptPos" />
-
-	<haxedef name="POLYMOD_SCRIPT_EXT" value=".hxs" />
-	<haxedef name="POLYMOD_USE_NAMESPACE" value="true" />
-
-	<haxedef name="POLYMOD_ROOT_PATH" value="scripts/" />
-	<haxedef name="POLYMOD_SCRIPT_LIBRARY" value="scripts" />
-
-	<haxedef name="POLYMOD_MOD_METADATA_FILE" value="meta.json" />
-	<haxedef name="POLYMOD_MOD_ICON_FILE" value="icon.png" />
-
-	<haxedef name="POLYMOD_DEBUG" if="debug" />
-
-	<define name="FEATURE_MODDING" />
-
-	<haxeflag name="--dce full" unless="debug || FEATURE_MODDING" />
-	<haxeflag name="--dce no" if="FEATURE_MODDING" />
-
-		<!--
-		Ensure additional class packages are available at runtime (some only really used by scripts).
-		Ignore packages we can't include.
-	-->
-
-	<haxeflag name="--macro" value="include('simpleclick')" />
-
-	<haxeflag name="--macro" value="include('flixel', true, [ 'flixel.addons.editors.spine.*', 'flixel.addons.nape.*', 'flixel.system.macros.*', 'flixel.addons.tile.FlxRayCastTilemap' ])" />
-	<haxeflag name="--macro" value="include('lime', true, ['lime.tools.*', 'lime._internal.*'])" />
-	<haxeflag name="--macro" value="include('openfl')" />
+	<haxeflag name="--dce full" unless="debug" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -51,13 +24,10 @@
 	<assets path="assets/scripts" library="scripts" />
 
 	<assets path="CHANGELOG.xml" />
-	<assets path="mods" />
-	<assets path="debug_mods" rename="mods" if="debug"/>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
 	<haxelib name="flixel" />
-	<haxelib name="polymod" />
 
 	<!-- _________________________ Application Settings _________________________ -->
 
@@ -81,8 +51,7 @@
 	<!--<haxedef name="FLX_NO_MOUSE_ADVANCED" />-->
 	<!--<haxedef name="FLX_NO_NATIVE_CURSOR" />-->
 
-	<!--Optimise
-	inputs, be careful you will get null errors if you don't use conditionals in your game-->
+	<!--Optimise inputs, be careful you will get null errors if you don't use conditionals in your game-->
 	<haxedef name="FLX_NO_MOUSE" if="mobile" />
 	<haxedef name="FLX_NO_KEYBOARD" if="mobile" />
 	<haxedef name="FLX_NO_TOUCH" if="desktop" />

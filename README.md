@@ -11,11 +11,13 @@ I just REALLY wanted to make something...
 ## Compiling
 
 1. Get [Haxeflixel](https://haxeflixel.com/)
-2. Run the following:
+
+<!-- 2. Run the following:
 - `haxelib git polymod https://github.com/FunkinCrew/polymod experimental`
 - `haxelib git thx.core https://github.com/fponticelli/thx.core`
-- `haxelib git thx.semver https://github.com/fponticelli/thx.semver`
-3. Perform additional platform setup
+- `haxelib git thx.semver https://github.com/fponticelli/thx.semver` -->
+
+2. Perform additional platform setup
    - For Windows, download the [Visual Studio Build Tools](https://aka.ms/vs/17/release/vs_BuildTools.exe)
         - When prompted, select "Individual Components" and make sure to download the following:
         - MSVC v143 VS 2022 C++ x64/x86 build tools
@@ -25,7 +27,3 @@ I just REALLY wanted to make something...
     - HTML5: Compiles without any extra setup
 
 Now do `lime test <ur platform>` and you are good.
-
-## Modding
-
-[Go here](docs/modding/README.md)
