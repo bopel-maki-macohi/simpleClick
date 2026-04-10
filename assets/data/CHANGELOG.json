@@ -1,6 +1,30 @@
 {
 	"entrys": [
 		{
+			"version": "0.6.0",
+			"changes": [
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "The Score Increment Popup is now hard-coded",
+					"type": "change"
+				},
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "Script Support",
+					"type": "removal"
+				},
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "Mod Support",
+					"type": "removal"
+				}
+			],
+			"date": "2026-04-10"
+		},
+		{
 			"version": "0.5.2",
 			"changes": [
 				{

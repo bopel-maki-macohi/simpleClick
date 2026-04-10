@@ -1,3 +1,9 @@
+# 0.6.0 - 2026-04-10
+
+- change : The Score Increment Popup is now hard-coded
+- removal : Script Support
+- removal : Mod Support
+
 # 0.5.2 - 2026-04-10
 
 - fix : Fixed Score Increment Popup being negative
@@ -52,4 +58,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-10 06:12:08 -->
+<!-- Generated: 2026-04-10 06:31:14 -->
