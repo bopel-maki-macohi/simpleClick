@@ -10,6 +10,8 @@ import polymod.backends.PolymodAssets.PolymodAssetType;
 import polymod.format.ParseRules.TextFileFormat;
 import polymod.Polymod;
 
+import polymod.hscript._internal.PolymodScriptClass;
+
 class PolymodHandler
 {
 	public static var API_VERSION(get, never):String;
@@ -37,7 +39,7 @@ class PolymodHandler
 	/**
 	 * Where relative to the executable that mods are located.
 	 */
-	static final MOD_FOLDER:String =
+	public static final MOD_FOLDER:String =
 		#if (REDIRECT_ASSETS_FOLDER && mac)
 		'../../../../../../../mods'
 		#elseif REDIRECT_ASSETS_FOLDER
@@ -46,7 +48,7 @@ class PolymodHandler
 		'mods'
 		#end;
 
-	static final CORE_FOLDER:Null<String> =
+	public static final CORE_FOLDER:Null<String> =
 		#if (REDIRECT_ASSETS_FOLDER && mac)
 		'../../../../../../../assets'
 		#elseif REDIRECT_ASSETS_FOLDER
@@ -110,6 +112,8 @@ class PolymodHandler
 			trace('Attempting to load ${dirs.length} mod(s)...');
 		}
 		#end
+
+		PolymodScriptClass._disabledMods = getAllModDirs().filter(f -> return !dirs.contains(f));
 
 		buildImports();
 
@@ -433,7 +437,7 @@ class PolymodHandler
 		Polymod.clearScripts();
 
 		PolymodHandler.getAllMods();
-		PolymodHandler.loadAllMods();
+		PolymodHandler.loadEnabledMods();
 
 		ModuleHandler.loadModuleCache();
 		ModuleHandler.callOnCreate();

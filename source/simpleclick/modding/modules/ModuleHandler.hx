@@ -150,7 +150,7 @@ class ModuleHandler
 				}
 			}
 
-			if (event.type != UPDATE) trace('${module.moduleId}: ${event.type}');
+			// if (event.type != UPDATE) trace('${module.moduleId}: ${event.type}');
 			
 			event = ScriptEventDispatcher.callEvent(module, event);
 		}
