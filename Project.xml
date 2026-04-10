@@ -16,13 +16,8 @@
 	<set name="BUILD_DIR" value="export/release" />
 	<set name="BUILD_DIR" value="export/debug" if="debug" />
 
-	<library name="scripts" />
-
 	<source path="source" />
-
 	<assets path="assets" />
-	<assets path="assets/scripts" library="scripts" />
-
 	<assets path="CHANGELOG.xml" />
 
 	<!-- _______________________________ Libraries ______________________________ -->

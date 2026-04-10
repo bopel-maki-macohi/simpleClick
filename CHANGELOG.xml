@@ -5,6 +5,7 @@
 
 <entrys>
     <entry version="0.6.0" date="2026-04-10">
+        <change>The Score Increment Popup is now hard-coded</change>
         <removal>Script Support</removal>
         <removal>Mod Support</removal>
     </entry>

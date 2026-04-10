@@ -1,6 +1,6 @@
 package simpleclick;
 
-import simpleclick.modding.events.ScriptEvent;
+import simpleclick.objects.ScoreIncrementPopup;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.math.FlxMath;
@@ -39,8 +39,6 @@ class PlayState extends BaseState
 		if (instance != null) instance = null;
 		instance = this;
 
-		ModState.currentSelection = 0;
-
 		_versionText = new FlxText(0, 0, 0, FlxG.stage.application.meta.get('version'), 16);
 		add(_versionText);
 
@@ -71,7 +69,9 @@ class PlayState extends BaseState
 	{
 		var scoreIncrement:Int = 1;
 
-		incrementScore(scoreIncrement);
+		var newHighscore:Bool = incrementScore(scoreIncrement);
+
+		ScoreIncrementPopup.build(scoreIncrement, newHighscore);
 
 		_object.scale.set(0.9, 0.9);
 
