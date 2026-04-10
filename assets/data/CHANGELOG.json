@@ -1,6 +1,18 @@
 {
 	"entrys": [
 		{
+			"version": "0.5.1",
+			"changes": [
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "Fixed crash when trying to load mods",
+					"type": "fix"
+				}
+			],
+			"date": "2026-04-09"
+		},
+		{
 			"version": "0.5.0",
 			"changes": [
 				{
