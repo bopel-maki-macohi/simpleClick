@@ -1,3 +1,7 @@
+# 0.5.2 - 2026-04-10
+
+- fix : Fixed Score Increment Popup being negative
+
 # 0.5.1 - 2026-04-09
 
 - fix : Fixed crash when trying to load mods
@@ -48,4 +52,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-09 21:00:51 -->
+<!-- Generated: 2026-04-10 06:12:08 -->

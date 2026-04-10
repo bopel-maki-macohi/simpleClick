@@ -1,6 +1,18 @@
 {
 	"entrys": [
 		{
+			"version": "0.5.2",
+			"changes": [
+				{
+					"issuenumber": null,
+					"link": null,
+					"change": "Fixed Score Increment Popup being negative",
+					"type": "fix"
+				}
+			],
+			"date": "2026-04-10"
+		},
+		{
 			"version": "0.5.1",
 			"changes": [
 				{

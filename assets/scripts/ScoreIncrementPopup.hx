@@ -18,9 +18,6 @@ class ScoreIncrementPopup extends Module
 	{
 		if (PlayState.instance == null) return event;
 
-		event.increment = -event.increment;
-		event.cancel();
-
 		var popup:FlxOutlineText = new FlxOutlineText(0, 0, 0, '+ ${event.increment}', 32);
 
 		if (event.increment < 0) popup.text = '- ${Math.abs(event.increment)}';

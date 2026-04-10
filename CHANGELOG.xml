@@ -4,6 +4,10 @@
 <!-- haxe -m dev.ChangelogTextGenerator - -interp -->
 
 <entrys>
+    <entry version="0.5.2" date="2026-04-10">
+        <fix>Fixed Score Increment Popup being negative</fix>
+    </entry>
+
     <entry version="0.5.1" date="2026-04-09">
         <fix>Fixed crash when trying to load mods</fix>
     </entry>
