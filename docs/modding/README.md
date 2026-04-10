@@ -12,5 +12,4 @@ Alright then!
 - [Making a Mod](making_a_mod.md)
 - [Script Events](script_events.md)
 
-<!-- AIUShDUIAHJsukdhauisdjhui -->
-<!-- - [Known Issues](known_issues.md) -->
+- [Known Issues](known_issues.md)
