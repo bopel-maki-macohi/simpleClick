@@ -73,6 +73,8 @@ class PlayState extends BaseState
 
 		ScoreIncrementPopup.build(scoreIncrement, newHighscore);
 
+		FlxG.sound.play('assets/sounds/click-${FlxG.random.int(1, 4)}.wav', 0.5);
+
 		_object.scale.set(0.9, 0.9);
 
 		FlxTween.cancelTweensOf(_object);
