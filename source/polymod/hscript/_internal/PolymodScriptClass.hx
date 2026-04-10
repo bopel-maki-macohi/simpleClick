@@ -281,17 +281,8 @@ class PolymodScriptClass
 				final o = value.origin;
 				final ods = Path.directory(o).split('/');
 
-				#if debug
-				trace(o);
-				trace(ods);
-				#end
-
 				if (ods[0] == PolymodHandler.MOD_FOLDER.replace('../', ''))
 				{
-					#if debug
-					trace('Mod scripted class thingy!');
-					#end
-
 					if (_disabledMods.contains(ods[1]))
 					{
 						Polymod.debug('Disabled mod(${ods[1]}) scripted class: ${key}');
