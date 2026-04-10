@@ -6,6 +6,12 @@
 				{
 					"issuenumber": null,
 					"link": null,
+					"change": "A random \"click\" sound will play when you click the object now",
+					"type": "addition"
+				},
+				{
+					"issuenumber": null,
+					"link": null,
 					"change": "The Score Increment Popup is now hard-coded",
 					"type": "change"
 				},

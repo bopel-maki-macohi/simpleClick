@@ -1,5 +1,6 @@
 # 0.6.0 - 2026-04-10
 
+- addition : A random "click" sound will play when you click the object now
 - change : The Score Increment Popup is now hard-coded
 - removal : Script Support
 - removal : Mod Support
@@ -58,4 +59,4 @@ Mostly a codebase update for the save system NGL
 
 Inital Release
 
-<!-- Generated: 2026-04-10 06:31:14 -->
+<!-- Generated: 2026-04-10 06:36:30 -->
