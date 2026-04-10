@@ -4,6 +4,9 @@
 <!-- haxe -m dev.ChangelogTextGenerator - -interp -->
 
 <entrys>
+    <entry version="0.7.0" date="2026-04-10">
+    </entry>
+
     <entry version="0.6.0" date="2026-04-10">
         <addition>A random "click" sound will play when you click the object now</addition>
         <change>The Score Increment Popup is now hard-coded</change>
